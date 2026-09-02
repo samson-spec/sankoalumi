@@ -537,7 +537,7 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 700;
     color: #005095;
     margin-bottom: 20px;
@@ -552,7 +552,7 @@ a {
 }
 
 .about__heading {
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(24px, 3vw, 44px);
     line-height: 1.6;
     font-weight: 700;
     color: #222222;
@@ -562,7 +562,7 @@ a {
 /* Image and overlapping badge */
 .about__image-wrapper {
     position: relative;
-    max-width: 400px; /* Adjust based on your image size */
+    max-width: 500px; /* Adjust based on your image size */
 }
 
 .about__image {
@@ -640,8 +640,8 @@ a {
 }
 
 .about__card-icon {
-    width: 60px;
-    height: auto;
+    height: 60px;
+    width: auto;
     margin: 15px 0;
     display: block;
 }
@@ -654,7 +654,7 @@ a {
 
 .about__grid-footer {
     text-align: right;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 700;
     color: #005095;
     margin-top: 15px;
@@ -749,7 +749,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 700;
     color: #005095;
     margin-bottom: 20px;
@@ -764,7 +764,7 @@ a {
 }
 
 .employee-voices__title {
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: clamp(24px, 3vw, 44px);
     line-height: 1.6;
     font-weight: 700;
     color: #222222;
