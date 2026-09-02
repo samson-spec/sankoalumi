@@ -1,0 +1,1333 @@
+/*
+Client Name: Sanku Aluminum Inc.
+Author: G-Angle
+Description: Custom Landing Page for Sanku Aluminum Inc.
+Version: 1.0
+*/
+
+
+/* =========================================================
+   Common
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    color: #222;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 100px 0;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   Common Width
+========================================================= */
+
+/* .hero-top, */
+.company-intro__inner,
+.recruitment-benefits,
+.employee-voices__inner,
+.site-header__inner,
+.site-footer__inner,
+.site-footer__bottom {
+    width: min(1680px, 90%);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   Common Button
+========================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    padding: 35px 70px;
+
+    border-radius: 20px;
+
+    background: #aaaaaa;
+    color: #000;
+
+    text-decoration: none;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.button:hover {
+    background: #999999;
+    transform: translateY(-2px);
+}
+
+
+/* Button Arrow */
+
+.button__arrow {
+    position: relative;
+
+    flex: 0 0 36px;
+
+    width: 36px;
+    height: 36px;
+}
+
+.button__arrow::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-40%, -50%);
+
+    width: 0;
+    height: 0;
+
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #656363;
+}
+
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 30px;
+    
+}
+
+.hero-top {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    /* background-image: url("../img/hero-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+
+    display: flex;
+    align-items: flex-end;
+
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Add these styles for the new video element */
+.hero__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Acts exactly like background-size: cover */
+    object-fit: cover; 
+    
+    z-index: 0;
+}
+
+/* Gray overlay */
+.hero-top::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    /* UPDATED: Changed from 0 to 1 so it sits above the video */
+    z-index: 1; 
+}
+
+/* =========================================================
+   Hero Inner 2
+========================================================= */
+
+.hero-bottom-2 {
+    width: 100%;
+    min-height: 30vh;
+
+    background-color: #005095;
+}
+
+/* =========================================================
+   Hero Logo
+========================================================= */
+
+.hero__logo-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    background-color: #ffffff;
+    
+    /* logo padding */
+    padding: 30px 30px 30px 5px; 
+
+    border-radius: 20px 0 20px 0; 
+    
+    z-index: 10; 
+}
+
+/* top right corner of logo */
+.hero__logo-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    
+    /* creates the convex curve for the image */
+    border-top-left-radius: 20px;
+    
+    box-shadow: -5px -5px 0 5px #ffffff;
+    pointer-events: none;
+}
+
+/* bottom left corner of logo */
+.hero__logo-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    
+    /* creates the convex curve for the image */
+    border-top-left-radius: 20px;
+
+    box-shadow: -5px -5px 0 5px #ffffff;
+    pointer-events: none;
+}
+
+.hero__logo {
+    display: block;
+}
+
+.hero__logo img {
+    height: 40px; 
+    width: auto;
+    display: block;
+}
+
+/* =========================================================
+   Hero Bottom
+========================================================= */
+
+.hero-content{
+
+    position: relative;
+    z-index: 2;
+
+    padding: 50px 20px;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 40px;
+
+}
+
+
+/* =========================================================
+   Recruitment
+========================================================= */
+
+.hero__recruitment {
+    min-width: 0;
+    text-align: left;
+    padding: 0 50px;
+}
+
+.hero__title {
+    margin: 0;
+
+    font-size: clamp(50px, 5vw, 70px);
+    line-height: 1.5;
+    font-weight: 500;
+
+    color: white;
+}
+
+.hero__subtitle{
+    font-size: 40px;
+    color: white;
+}
+
+/* =========================================================
+   PR Circle
+========================================================= */
+
+.hero__pr {
+    padding: 0 20px;
+}
+
+.hero__pr-circle {
+    position: relative;
+
+    width: 250px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(120deg, #005095 0%, #40dea2 100%);
+
+    color: white;
+    text-decoration: none;
+
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    transition: transform 0.3s ease;
+}
+
+.hero__yt-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 5px; */
+}
+
+.hero__yt-icon svg {
+    width: 50px;
+    height: 50px;
+}
+
+.hero__pr-circle > svg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    animation: rotate-circle-text 30s linear infinite;
+}
+
+.hero__pr-circle text {
+    fill: rgba(255, 255, 255, 0.5);
+
+    font-size: 17.3px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+@keyframes rotate-circle-text {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero__pr-circle:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+/* =========================================================
+   Company Introduction
+========================================================= */
+
+.company-intro {
+    padding: 80px 0;
+
+    text-align: center;
+
+    background: #fff;
+}
+
+.company-intro__text {
+    margin: 50px 0 0;
+
+    font-size: 50px;
+    line-height: 2;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   Recruitment Benefits
+========================================================= */
+
+.recruitment-benefits-section {
+    padding: 100px 0;
+
+    background: #e2e2e2;
+}
+
+
+/* Section Title */
+
+.recruitment-benefits__title {
+    margin: 0 0 50px;
+
+    text-align: center;
+
+    font-size: 50px;
+    line-height: 1.4;
+}
+
+
+/* Benefits Grid */
+
+.recruitment-benefits__list {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* Benefit Box */
+
+.recruitment-benefits__item {
+    min-width: 0;
+    min-height: 250px;
+
+    padding: 30px;
+
+    background: #fff;
+
+    text-align: left;
+}
+
+
+/* Benefit Heading */
+
+.recruitment-benefits__item h3 {
+    margin: 0 0 15px;
+
+    font-size: 36px;
+    line-height: 1.5;
+}
+
+
+/* Benefit Main Text */
+
+.recruitment-benefits__item p {
+    margin: 0;
+
+    font-size: 84px;
+    line-height: 1.4;
+    font-weight: 700;
+
+    overflow-wrap: break-word;
+}
+
+.recruitment-benefits__item p span {
+    font-size: 46px;
+}
+
+
+/* Benefit Note */
+
+.recruitment-benefits__item small {
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* Ending */
+
+.recruitment-benefits__ending {
+    margin: 30px 0 0;
+
+    text-align: right;
+
+    font-size: 36px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   Employee Voices
+========================================================= */
+
+.employee-voices-section {
+    padding: 80px 0;
+
+    background: #fff;
+
+    text-align: center;
+}
+
+
+/* Intro Text */
+
+.employee-voices__text {
+    margin: 40px 0 50px;
+
+    font-size: 50px;
+    line-height: 1.8;
+
+    font-weight: 700;
+}
+
+
+/* Heading */
+
+.employee-voices__heading {
+    margin: 0;
+
+    text-align: left;
+
+    font-size: 36px;
+    line-height: 1.5;
+}
+
+
+/* List */
+
+.employee-voices__list {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 80px;
+
+    margin-top: 70px;
+}
+
+
+/* Voice Item */
+
+.employee-voices__item {
+    width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns: 200px minmax(0, 1fr);
+
+    gap: 40px;
+
+    align-items: center;
+}
+
+
+/* Columns */
+
+.employee-voices__item-column {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   Employee Square
+========================================================= */
+
+.employee-voices__item-square {
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    background: #aaaaaa;
+
+    text-align: center;
+}
+
+.employee-voices__item-square p {
+    margin: 0;
+
+    font-size: 36px;
+    line-height: 1.4;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   Employee Message
+========================================================= */
+
+.employee-voices__item-message {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 40px 50px;
+
+    background: #e2e2e2;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* Dialogue Tail */
+
+.employee-voices__item-message::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: -22px;
+
+    transform: translateY(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 22px solid #e2e2e2;
+}
+
+
+/* Message Paragraph */
+
+.employee-voices__item-message p {
+    margin: 0;
+
+    text-align: left;
+
+    font-size: 36px;
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.employee-voices__item-message p:first-child {
+    margin-bottom: 20px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   Reverse Employee Voice
+========================================================= */
+
+.employee-voices__item--reverse {
+    grid-template-columns: minmax(0, 1fr) 200px;
+}
+
+
+/* Square on Right */
+
+.employee-voices__item--reverse .employee-voices__item-square {
+    margin-left: auto;
+}
+
+
+/* Tail on Right */
+
+.employee-voices__item--reverse .employee-voices__item-message::before {
+    left: auto;
+    right: -22px;
+
+    border-right: none;
+    border-left: 22px solid #e2e2e2;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section {
+    padding: 80px 20px;
+
+    background: #fff;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   Header
+========================================================= */
+
+.site-header {
+    width: 100%;
+
+    background: #fff;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.site-header__inner {
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.site-header__logo img {
+    display: block;
+
+    width: 300px;
+    height: auto;
+}
+
+.site-header__nav ul {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.site-header__nav a {
+    color: #222;
+    text-decoration: none;
+}
+
+.site-header__contact a {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    color: #fff;
+    background: #222;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+.site-footer {
+    padding: 70px 0 70px;
+
+    background: #aaaaaa;
+
+    color: #000;
+
+    text-align: right;
+}
+
+.site-footer__logo img {
+    display: block;
+
+    width: 360px;
+    height: auto;
+
+    margin-left: auto;
+}
+
+.site-footer__company .site-website-name, .site-copyright {
+    margin: 20px 0 0;
+
+    font-size: 20px;
+}
+
+.site-footer__company .site-website-name a {
+    color: #000;
+
+    text-decoration: none;
+}
+
+.site-footer__bottom {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.site-footer__bottom p {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    /* Hero */
+
+    .hero {
+        min-height: 650px;
+    }
+
+    .hero-top {
+        min-height: 550px;
+    }
+
+    .hero__title {
+        font-size: 64px;
+    }
+
+    .hero__pr-circle {
+        width: 210px;
+        height: 210px;
+
+        font-size: 32px;
+    }
+
+
+    /* Benefits */
+
+    .recruitment-benefits__list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .recruitment-benefits__item {
+        min-height: 240px;
+    }
+
+    .recruitment-benefits__item h3 {
+        font-size: 30px;
+    }
+
+    .recruitment-benefits__item p {
+        font-size: 64px;
+    }
+
+
+    /* Employee Voices */
+
+    .employee-voices__text {
+        font-size: 30px;
+    }
+
+    .employee-voices__item-message p {
+        font-size: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 768px) {
+
+    section {
+        padding: 70px 0;
+    }
+
+
+    /* =========================
+       Common
+    ========================== */
+
+    .hero-top,
+    .company-intro__inner,
+    .recruitment-benefits,
+    .employee-voices__inner,
+    .site-header__inner,
+    .site-footer__inner,
+    .site-footer__bottom {
+        width: min(92%, 600px);
+    }
+
+    .button {
+
+         width: 100%;
+
+        /* justify-content: space-between; */
+
+        padding: 20px 25px;
+
+        font-size: 20px;
+
+        gap: 15px;
+
+        padding: 20px 25px;
+
+        border-radius: 14px;
+
+        font-size: 20px;
+    }
+
+    .button__arrow {
+        flex-basis: 30px;
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .button__arrow::after {
+        border-top-width: 8px;
+        border-bottom-width: 8px;
+        border-left-width: 13px;
+    }
+
+    /* =========================================================
+    Hero
+    ========================================================= */
+
+    .hero {
+        min-height: auto;
+        padding: 70px 0;
+    }
+
+    .hero-top{
+        width: 90%;
+        min-height: 500px;
+
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "catchphrase pr"
+            "recruitment recruitment";
+
+        align-items: start;
+    }
+
+
+    /* Top wrapper becomes invisible to the layout */
+    /* .hero__top {
+        display: contents;
+    } */
+
+
+    /* Catchphrase */
+    .hero__catchphrase {
+        grid-area: catchphrase;
+
+        margin: 0;
+
+        text-align: left;
+
+        font-size: 30px;
+        line-height: 1.5;
+    }
+
+
+    /* PR */
+    .hero__pr {
+        grid-area: pr;
+
+        position: static;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero__pr-circle {
+        width: 150px;
+        height: 150px;
+
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+
+    /* Recruitment */
+    .hero__recruitment {
+        grid-area: recruitment;
+
+        width: 100%;
+
+        text-align: left;
+
+        align-self: end;
+    }
+
+    .hero__title {
+        font-size: clamp(42px, 11vw, 60px);
+
+        -webkit-text-stroke: 5px white;
+    }
+
+
+    /* Bottom wrapper also becomes transparent */
+    .hero-content {
+        display: contents;
+    }
+
+
+
+    /* =========================
+       Company Introduction
+    ========================== */
+
+    .company-intro {
+        padding: 70px 0;
+    }
+
+    .company-intro__text {
+        margin-top: 40px;
+
+        font-size: 28px;
+        line-height: 1.8;
+    }
+
+
+    /* =========================
+       Recruitment Benefits
+    ========================== */
+
+    .recruitment-benefits-section {
+        padding: 70px 0;
+    }
+
+    .recruitment-benefits__title {
+        margin-bottom: 35px;
+
+        font-size: 32px;
+    }
+
+    .recruitment-benefits__list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .recruitment-benefits__item {
+        min-width: 0;
+        min-height: 220px;
+        padding: 20px;
+    }
+
+    .recruitment-benefits__item h3 {
+        margin-bottom: 10px;
+
+        font-size: 24px;
+    }
+
+    .recruitment-benefits__item p {
+        font-size: 52px;
+    }
+
+    .recruitment-benefits__item p span {
+        font-size: 30px;
+    }
+
+    .recruitment-benefits__item small {
+        font-size: 12px;
+    }
+
+    .recruitment-benefits__ending {
+        margin-top: 25px;
+
+        font-size: 24px;
+    }
+
+
+     /* =========================
+       Employee Voices
+    ========================= */
+
+    .employee-voices__list {
+        gap: 40px;
+    }
+
+    .employee-voices__item {
+        display: grid;
+
+        grid-template-columns: 100px minmax(0, 1fr);
+
+        gap: 15px;
+
+        align-items: center;
+    }
+
+
+    /* Square */
+
+    .employee-voices__item-square {
+        width: 100px;
+        height: 100px;
+
+        padding: 5px;
+    }
+
+    .employee-voices__item-square p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+
+    /* Message */
+
+    .employee-voices__item-message {
+        padding: 20px;
+
+        border-radius: 8px;
+    }
+
+    .employee-voices__item-message p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .employee-voices__item-message p:first-child {
+        margin-bottom: 10px;
+    }
+
+
+    /* Normal dialogue tail */
+
+    .employee-voices__item--normal
+    .employee-voices__item-message::before {
+        left: -12px;
+
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        border-right-width: 12px;
+    }
+
+
+    /* Reverse layout */
+
+    .employee-voices__item--reverse {
+        grid-template-columns: minmax(0, 1fr) 100px;
+    }
+
+
+    /* Reverse square */
+
+    .employee-voices__item--reverse
+    .employee-voices__item-square {
+        margin-left: auto;
+    }
+
+
+    /* Reverse dialogue tail */
+
+    .employee-voices__item--reverse
+    .employee-voices__item-message::before {
+        right: -12px;
+        left: auto;
+
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        border-left-width: 12px;
+    }
+
+
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta-section {
+        padding: 20px 20px;
+    }
+
+
+    /* =========================
+       Header
+    ========================== */
+
+    .site-header__inner {
+        min-height: 70px;
+
+        gap: 15px;
+    }
+
+    .site-header__logo img {
+        width: 180px;
+    }
+
+    .site-header__nav ul {
+        gap: 12px;
+    }
+
+    .site-header__nav a {
+        font-size: 14px;
+    }
+
+    .site-header__contact a {
+        padding: 9px 12px;
+
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       Footer
+    ========================== */
+
+    .site-footer {
+        padding: 50px 0 50px;
+    }
+
+    .site-footer__logo img {
+        width: 240px;
+    }
+
+    .site-footer__company .site-website-name, .site-copyright {
+        font-size: 16px;
+    }
+
+    .site-footer__bottom {
+        margin-top: 40px;
+    }
+
+    .site-footer__bottom p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   Small Mobile
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero__catchphrase {
+        font-size: 25px;
+    }
+
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .hero__pr-circle {
+        width: 160px;
+        height: 160px;
+
+        font-size: 21px;
+    }
+
+
+    .company-intro__text {
+        font-size: 24px;
+    }
+
+
+    .recruitment-benefits__title {
+        font-size: 24px;
+    }
+
+    .recruitment-benefits__item h3 {
+        font-size: 21px;
+    }
+
+    .recruitment-benefits__item p {
+        font-size: 45px;
+    }
+
+
+    .employee-voices__text {
+        font-size: 25px;
+    }
+
+    .employee-voices__heading {
+        font-size: 24px;
+    }
+
+    .employee-voices__item-message {
+        padding: 20px;
+    }
+
+    .employee-voices__item-message p {
+        font-size: 19px;
+    }
+
+
+    .button {
+        padding: 17px 20px;
+
+        font-size: 18px;
+    }
+
+
+    .site-header__logo img {
+        width: 140px;
+    }
+
+    .site-header__nav {
+        display: none;
+    }
+
+    .site-footer__logo img {
+        width: 200px;
+    }
+
+}
