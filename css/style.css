@@ -930,7 +930,7 @@ a {
     position: relative;
     /* Dimensions and rounded corners */
     height: 350px;
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     margin: 20px auto;
     border-radius: 20px;
     background: linear-gradient(160deg, #47f9ad 0%, #005095 80%);
