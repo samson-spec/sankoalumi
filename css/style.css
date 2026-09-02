@@ -834,54 +834,68 @@ a {
    Employee Voices Image Gallery
 ========================================================= */
 
-.employee-voices__gallery {
+/* =========================================================
+   Employee Voices Continuous Full-Width Slider
+========================================================= */
+
+.employee-voices__slider {
+    width: 100%;
+    overflow: hidden; /* Hides the images outside the screen edges */
+    padding: 40px 0;  /* Prevents the staggered up/down images from getting cut off */
+}
+
+.employee-voices__slider-track {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    width: max-content; /* Allows track to be as wide as all images combined */
+    
+    /* The scrolling animation. Change '40s' to make it faster or slower */
+    animation: gallery-scroll 40s linear infinite;
+}
+
+/* Optional: Pauses the continuous scrolling when a user hovers over the images */
+/* .employee-voices__slider-track:hover {
+    animation-play-state: paused;
+} */
+
+.gallery-set {
+    display: flex;
     gap: 20px;
-    flex-wrap: nowrap;
+    /* Adds the same gap size to the end of the set so it connects perfectly to Set 2 */
+    padding-right: 20px; 
 }
 
 .gallery-img {
+    width: 300px;
+    flex-shrink: 0;
     border-radius: 15px;
-    width: 23%; /* Shares the width evenly across 4 images */
     object-fit: cover;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* 
    Staggered Layout Adjustments 
-   Uses translateY to shift images up and down dynamically
 */
-.gallery-img--1 {
-    height: 260px;
-    transform: translateY(-20px);
-}
+.gallery-img--1 { height: 260px; transform: translateY(-20px); }
+.gallery-img--2 { height: 200px; transform: translateY(20px); }
+.gallery-img--3 { height: 240px; transform: translateY(-10px) rotate(1deg); }
+.gallery-img--4 { height: 230px; transform: translateY(30px); }
 
-.gallery-img--2 {
-    height: 200px;
-    transform: translateY(20px);
-}
 
-.gallery-img--3 {
-    height: 240px;
-    transform: translateY(-10px) rotate(1deg); /* Slight tilt to match design */
-}
-
-.gallery-img--4 {
-    height: 230px;
-    transform: translateY(30px);
-}
-
-/* Responsive fixes for the gallery */
-@media (max-width: 768px) {
-    .employee-voices__gallery {
-        flex-wrap: wrap; /* Allows images to stack */
+/* The Continuous Loop Animation */
+@keyframes gallery-scroll {
+    0% {
+        transform: translateX(0);
     }
+    100% {
+        /* Moves the track exactly halfway to the left, creating a flawless loop */
+        transform: translateX(-50%); 
+    }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
     .gallery-img {
-        width: 45%; /* Shows 2 images per row on smaller screens */
-        height: 200px; 
-        transform: none; /* Removes the heavy staggering on mobile */
+        width: 220px; /* Slightly smaller images on phones */
     }
 }
 
