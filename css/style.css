@@ -18,6 +18,8 @@ Version: 1.0
 
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth; 
+
 }
 
 body {
@@ -121,102 +123,76 @@ a {
 
 
 /* =========================================================
-   Hero
+   01. Hero Main Container
 ========================================================= */
-
+/* The main wrapper holding both top and bottom sections */
 .hero {
-    min-height: 100vh;
+    position: relative;
     width: 100%;
-
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-
     background-size: cover;
     background-position: center;
-
-    padding: 30px;
-    
+    padding: 0;
 }
 
+/* =========================================================
+   02. Hero Top Section (Video & Overlay)
+========================================================= */
+/* The top card container that holds the video, logo, and text */
 .hero-top {
     position: relative;
-
-    width: 100%;
-    min-height: 100vh;
-
-    margin-right: auto;
-    margin-left: auto;
-
-    /* background-image: url("../img/hero-bg.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
-
     display: flex;
     align-items: flex-end;
-
+    
+    width: calc(100% - 60px);
+    min-height: 90vh;
+    
+    /* Pulls the bottom section underneath this container by 150px */
+    margin: 30px 30px -150px 30px;
+    
     border-radius: 20px;
     overflow: hidden;
 }
 
-/* Add these styles for the new video element */
+/* Background video functioning as a cover */
 .hero__video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    
-    /* Acts exactly like background-size: cover */
     object-fit: cover; 
-    
     z-index: 0;
 }
 
-/* Gray overlay */
+/* Dark transparent overlay over the video to make text readable */
 .hero-top::before {
     content: "";
     position: absolute;
     inset: 0;
-
     background: rgba(0, 0, 0, 0.5);
-
-    /* UPDATED: Changed from 0 to 1 so it sits above the video */
     z-index: 1; 
 }
 
 /* =========================================================
-   Hero Inner 2
+   03. Hero Logo (Inverted Border-Radius)
 ========================================================= */
-
-.hero-bottom-2 {
-    width: 100%;
-    min-height: 30vh;
-
-    background-color: #005095;
-}
-
-/* =========================================================
-   Hero Logo
-========================================================= */
-
+/* White background box for the logo */
 .hero__logo-wrapper {
     position: absolute;
     top: 0;
     left: 0;
-    
     background-color: #ffffff;
-    
-    /* logo padding */
     padding: 30px 30px 30px 5px; 
-
-    border-radius: 20px 0 20px 0; 
     
+    /* Curves the bottom-right corner of the white box itself */
+    border-radius: 20px 0 20px 0; 
     z-index: 10; 
 }
 
-/* top right corner of logo */
+/* Inverted corner 1: Top-Right curve connecting to background */
 .hero__logo-wrapper::before {
     content: "";
     position: absolute;
@@ -225,15 +201,14 @@ a {
     width: 20px;
     height: 20px;
     background-color: transparent;
-    
-    /* creates the convex curve for the image */
     border-top-left-radius: 20px;
     
+    /* Box shadow trick to create the inverted fill */
     box-shadow: -5px -5px 0 5px #ffffff;
     pointer-events: none;
 }
 
-/* bottom left corner of logo */
+/* Inverted corner 2: Bottom-Left curve connecting to background */
 .hero__logo-wrapper::after {
     content: "";
     position: absolute;
@@ -242,10 +217,9 @@ a {
     width: 20px;
     height: 20px;
     background-color: transparent;
-    
-    /* creates the convex curve for the image */
     border-top-left-radius: 20px;
-
+    
+    /* Box shadow trick to create the inverted fill */
     box-shadow: -5px -5px 0 5px #ffffff;
     pointer-events: none;
 }
@@ -261,30 +235,24 @@ a {
 }
 
 /* =========================================================
-   Hero Bottom
+   04. Hero Top Content (Text & PR Circle Wrapper)
 ========================================================= */
-
-.hero-content{
-
+/* Sits above the video overlay and aligns items to the bottom */
+.hero-content {
     position: relative;
     z-index: 2;
-
-    padding: 50px 20px;
     width: 100%;
-
+    padding: 50px 20px;
+    
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
     gap: 40px;
-
 }
 
-
 /* =========================================================
-   Recruitment
+   05. Recruitment Typography
 ========================================================= */
-
 .hero__recruitment {
     min-width: 0;
     text-align: left;
@@ -293,57 +261,55 @@ a {
 
 .hero__title {
     margin: 0;
-
     font-size: clamp(50px, 5vw, 70px);
     line-height: 1.5;
     font-weight: 500;
-
     color: white;
 }
 
-.hero__subtitle{
+.hero__subtitle {
     font-size: 40px;
     color: white;
 }
 
 /* =========================================================
-   PR Circle
+   06. PR Animated Circle Button
 ========================================================= */
-
 .hero__pr {
     padding: 0 20px;
 }
 
 .hero__pr-circle {
     position: relative;
-
     width: 250px;
     height: 250px;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    
     border-radius: 50%;
-
     background: linear-gradient(120deg, #005095 0%, #40dea2 100%);
-
+    
     color: white;
     text-decoration: none;
-
     font-size: 25px;
     font-weight: 500;
     line-height: 1.5;
-
+    
     transition: transform 0.3s ease;
 }
 
+.hero__pr-circle:hover {
+    transform: scale(1.05);
+}
+
+/* Center icon inside the circle */
 .hero__yt-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-bottom: 5px; */
 }
 
 .hero__yt-icon svg {
@@ -351,478 +317,852 @@ a {
     height: 50px;
 }
 
+/* The rotating text SVG overlay */
 .hero__pr-circle > svg {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     pointer-events: none;
-
     animation: rotate-circle-text 30s linear infinite;
 }
 
 .hero__pr-circle text {
     fill: rgba(255, 255, 255, 0.5);
-
     font-size: 17.3px;
     font-weight: 500;
     letter-spacing: 1.5px;
 }
 
 @keyframes rotate-circle-text {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
-
-.hero__pr-circle:hover {
-    transform: scale(1.05);
-}
-
-
-
-
-
-
 
 /* =========================================================
-   Company Introduction
+   07. Hero Bottom Section (Gradient Background)
 ========================================================= */
-
-.company-intro {
-    padding: 80px 0;
-
-    text-align: center;
-
-    background: #fff;
+.hero-bottom {
+    width: 100%;
+    min-height: 55vh;
+    background: linear-gradient(160deg, #47f9ad 0%, #005095 80%);
+    
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; 
 }
 
-.company-intro__text {
-    margin: 50px 0 0;
+/* Pushes content down to account for the overlapping hero-top (-150px margin) */
+.hero-bottom__content {
+    margin-top: 200px;
+    text-align: center;
+}
 
-    font-size: 50px;
-    line-height: 2;
+.hero-bottom__title {
+    color: white;
+    font-weight: 500;
+    text-align: center;
+}
 
+/* =========================================================
+   08. Hero Bottom Avatar Buttons
+========================================================= */
+.hero-bottom__buttons {
+    display: flex;
+    gap: 30px; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%;
+}
+
+/* The Pill Shape */
+.hero-bottom__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    
+    width: 320px; 
+    max-width: 100%;
+    padding: 25px 20px 25px 100px; /* 100px left padding makes room for avatar */
+    
+    background-color: #ffffff;
+    color: #222222;
+    text-decoration: none;
+    border-radius: 50px; 
+    
+    font-size: 18px;
     font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-bottom__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* The "Pop-Out" Avatar Image Wrapper */
+.hero-bottom__button-avatar {
+    position: absolute;
+    bottom: 0; 
+    left: 20px;
+    
+    /* Scales image taller than the button to break out of the top */
+    height: 135%; 
+    
+    display: flex;
+    align-items: flex-end; 
+    pointer-events: none; 
+    z-index: 1;
+}
+
+.hero-bottom__button-avatar img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+/* Elevate text and icon above the avatar wrapper */
+.hero-bottom__button-text,
+.hero-bottom__button-icon {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero-bottom__button-text {
+    margin-left: 20px;
+}
+
+/* The circular arrow icon on the right */
+.hero-bottom__button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 40px;
+    height: 40px;
+    
+    background-color: #005095; 
+    color: #ffffff;            
+    border-radius: 50%;
+    flex-shrink: 0; 
+}
+
+.hero-bottom__button-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+/* =========================================================
+   About Section
+========================================================= */
+
+.about {
+    /* Prevent horizontal scrollbars on the entire section */
+    overflow: hidden; 
+    padding: 0 0 50px 0; 
+}
+
+/* Container for the scrolling text */
+.about__marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap; /* Forces text to stay on a single line */
+}
+
+/* The moving wrapper */
+.about__marquee-inner {
+    display: inline-flex;
+    animation: marquee-rtl 40s linear infinite;
+}
+
+/* Typography & Outline Style */
+.about__title {
+    margin: 0;
+    padding-right: 30px; /* Space between the first and second repeating text */
+    
+    font-size: 100px;
+    font-weight: 800; /* Thick font weight to make the outline look good */
+    
+    /* Creates the transparent text with an outline */
+    color: transparent;
+    -webkit-text-stroke: 2px #d4e5f4; /* Light blue outline */
+    
+    /* Optional: ensures text doesn't collapse if you type lowercase */
+    text-transform: uppercase; 
+}
+
+@keyframes marquee-rtl {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 
 /* =========================================================
-   Recruitment Benefits
+   About 2-Column Layout
 ========================================================= */
 
-.recruitment-benefits-section {
-    padding: 100px 0;
-
-    background: #e2e2e2;
+.about__columns {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    gap: 50px;
+    justify-content: space-between;
+    
+    width: min(1200px, 90%);
+    margin: 80px auto 0; 
 }
 
+/* =========================================================
+   About Left Column
+========================================================= */
 
-/* Section Title */
+.about__col-left {
+    flex: 1 1 450px;
+}
 
-.recruitment-benefits__title {
-    margin: 0 0 50px;
+.about__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #005095;
+    margin-bottom: 20px;
+}
 
+.about__label-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #005095;
+    border-radius: 50%;
+}
+
+.about__heading {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.6;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 40px;
+}
+
+/* Image and overlapping badge */
+.about__image-wrapper {
+    position: relative;
+    max-width: 400px; /* Adjust based on your image size */
+}
+
+.about__image {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.about__badge {
+    position: absolute;
+    top: -20px;
+    right: -40px; 
+    
+    width: 160px;
+    height: 160px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-
-    font-size: 50px;
-    line-height: 1.4;
-}
-
-
-/* Benefits Grid */
-
-.recruitment-benefits__list {
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 20px;
-}
-
-
-/* Benefit Box */
-
-.recruitment-benefits__item {
-    min-width: 0;
-    min-height: 250px;
-
-    padding: 30px;
-
-    background: #fff;
-
-    text-align: left;
-}
-
-
-/* Benefit Heading */
-
-.recruitment-benefits__item h3 {
-    margin: 0 0 15px;
-
-    font-size: 36px;
+    
+    background-color: #ffffff;
+    border: 1px solid #005095;
+    border-radius: 50%;
+    
+    font-size: 14px;
+    font-weight: 700;
+    color: #005095;
     line-height: 1.5;
 }
 
+/* =========================================================
+   About Right Column (Grid Cards)
+========================================================= */
 
-/* Benefit Main Text */
+.about__col-right {
+    flex: 1 1 500px;
+}
 
-.recruitment-benefits__item p {
-    margin: 0;
+.about__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
 
-    font-size: 84px;
-    line-height: 1.4;
+.about__card {
+    background-color: #eaf1f8; /* Light blue matching screenshot */
+    border-radius: 10px;
+    padding: 30px 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    color: #005095; /* Same dark blue for all text inside cards */
+}
+
+.about__card-title {
+    font-size: 26px;
     font-weight: 700;
-
-    overflow-wrap: break-word;
+    margin-bottom: 5px;
 }
 
-.recruitment-benefits__item p span {
-    font-size: 46px;
+.about__card-main {
+    font-size: 40px;
+    font-weight: 700;
 }
 
+/* Makes the numbers larger than the kanji around them */
+.about__card-main span {
+    font-size: 60px;
+    margin: 0 5px;
+}
 
-/* Benefit Note */
-
-.recruitment-benefits__item small {
+.about__card-icon {
+    width: 60px;
+    height: auto;
+    margin: 15px 0;
     display: block;
-
-    margin-top: 15px;
-
-    font-size: 12px;
-    line-height: 1.6;
 }
 
+.about__card-note {
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: auto; /* Pushes note to the bottom if cards have different heights */
+}
 
-/* Ending */
-
-.recruitment-benefits__ending {
-    margin: 30px 0 0;
-
+.about__grid-footer {
     text-align: right;
-
-    font-size: 36px;
+    font-size: 16px;
     font-weight: 700;
+    color: #005095;
+    margin-top: 15px;
 }
+
+/* =========================================================
+   Responsive Adjustments
+========================================================= */
+@media (max-width: 900px) {
+    .about__badge {
+        right: -10px; /* Pull the badge inward on smaller screens */
+    }
+}
+
+@media (max-width: 550px) {
+    .about__grid {
+        grid-template-columns: 1fr; /* Stacks cards on mobile */
+    }
+}
+
+
+
+
+
 
 
 /* =========================================================
    Employee Voices
 ========================================================= */
 
-.employee-voices-section {
-    padding: 80px 0;
 
-    background: #fff;
-
-    text-align: center;
+.employee-voices {
+    position: relative;
+    background-color: #eaf1f8; /* Light blue background */
+    
+    /* Ensure you have enough top margin so the bump doesn't overlap text above it */
+    margin-top: 100px; 
+    margin-bottom: -200px;
+    padding: 80px 0 250px;
 }
 
 
-/* Intro Text */
-
-.employee-voices__text {
-    margin: 40px 0 50px;
-
-    font-size: 50px;
-    line-height: 1.8;
-
-    font-weight: 700;
+/* 
+   The Center Curve (Localized Bump)
+   Creates a semi-ellipse sitting exactly on top of the container's edge
+*/
+.employee-voices::before {
+    content: "";
+    position: absolute;
+    
+    /* 
+       Moves the shape up by exactly its height 
+       so it sits flush on top of the straight edge 
+    */
+    top: -60px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Adjust these to make the bump wider/narrower or taller/shorter */
+    width: 400px; 
+    height: 100px; 
+    
+    background-color: #eaf1f8; /* Must exactly match the container's background */
+    
+    /* 
+       Magic border-radius formula to create a perfect top semi-ellipse 
+       It rounds the top left/right at 100% height, keeping the bottom flat
+    */
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    
+    z-index: 1;
 }
 
-
-/* Heading */
-
-.employee-voices__heading {
-    margin: 0;
-
-    text-align: left;
-
-    font-size: 36px;
-    line-height: 1.5;
+.employee-voices__inner {
+    position: relative;
+    z-index: 2; /* Keeps content above the background curve */
+    width: min(1200px, 90%);
+    margin: 0 auto;
 }
-
-
-/* List */
-
-.employee-voices__list {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 80px;
-
-    margin-top: 70px;
-}
-
-
-/* Voice Item */
-
-.employee-voices__item {
-    width: 100%;
-    min-width: 0;
-
-    display: grid;
-
-    grid-template-columns: 200px minmax(0, 1fr);
-
-    gap: 40px;
-
-    align-items: center;
-}
-
-
-/* Columns */
-
-.employee-voices__item-column {
-    min-width: 0;
-}
-
 
 /* =========================================================
-   Employee Square
+   Employee Voices Header
 ========================================================= */
 
-.employee-voices__item-square {
-    width: 200px;
-    height: 200px;
+.employee-voices__header {
+    text-align: center;
+    margin-bottom: 50px;
+}
 
-    display: flex;
+.employee-voices__label {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    padding: 10px;
-
-    background: #aaaaaa;
-
-    text-align: center;
-}
-
-.employee-voices__item-square p {
-    margin: 0;
-
-    font-size: 36px;
-    line-height: 1.4;
-
+    gap: 10px;
+    font-size: 16px;
     font-weight: 700;
-}
-
-
-/* =========================================================
-   Employee Message
-========================================================= */
-
-.employee-voices__item-message {
-    position: relative;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 40px 50px;
-
-    background: #e2e2e2;
-
-    border-radius: 10px;
-
-    text-align: left;
-
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-
-
-/* Dialogue Tail */
-
-.employee-voices__item-message::before {
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    left: -22px;
-
-    transform: translateY(-50%);
-
-    width: 0;
-    height: 0;
-
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 22px solid #e2e2e2;
-}
-
-
-/* Message Paragraph */
-
-.employee-voices__item-message p {
-    margin: 0;
-
-    text-align: left;
-
-    font-size: 36px;
-    line-height: 1.8;
-
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-
-.employee-voices__item-message p:first-child {
+    color: #005095;
     margin-bottom: 20px;
-
-    font-weight: 700;
 }
 
+.employee-voices__label-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #005095;
+    border-radius: 50%;
+}
+
+.employee-voices__title {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.6;
+    font-weight: 700;
+    color: #222222;
+    margin: 0;
+}
 
 /* =========================================================
-   Reverse Employee Voice
+   Employee Voices Cards
 ========================================================= */
 
-.employee-voices__item--reverse {
-    grid-template-columns: minmax(0, 1fr) 200px;
+.employee-voices__cards {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 80px;
+    flex-wrap: wrap; /* Stacks on mobile */
+}
+
+.voice-card {
+    flex: 1;
+    min-width: 320px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 30px;
+    
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.voice-card__avatar {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.voice-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.voice-card__content {
+    flex: 1;
+}
+
+.voice-card__role {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+.voice-card__demo {
+    font-size: 14px;
+    color: #666666;
+    margin: 0 0 15px;
+}
+
+.voice-card__text {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* =========================================================
+   Employee Voices Image Gallery
+========================================================= */
+
+.employee-voices__gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+.gallery-img {
+    border-radius: 15px;
+    width: 23%; /* Shares the width evenly across 4 images */
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+   Staggered Layout Adjustments 
+   Uses translateY to shift images up and down dynamically
+*/
+.gallery-img--1 {
+    height: 260px;
+    transform: translateY(-20px);
+}
+
+.gallery-img--2 {
+    height: 200px;
+    transform: translateY(20px);
+}
+
+.gallery-img--3 {
+    height: 240px;
+    transform: translateY(-10px) rotate(1deg); /* Slight tilt to match design */
+}
+
+.gallery-img--4 {
+    height: 230px;
+    transform: translateY(30px);
+}
+
+/* Responsive fixes for the gallery */
+@media (max-width: 768px) {
+    .employee-voices__gallery {
+        flex-wrap: wrap; /* Allows images to stack */
+    }
+    .gallery-img {
+        width: 45%; /* Shows 2 images per row on smaller screens */
+        height: 200px; 
+        transform: none; /* Removes the heavy staggering on mobile */
+    }
 }
 
 
-/* Square on Right */
-
-.employee-voices__item--reverse .employee-voices__item-square {
-    margin-left: auto;
-}
 
 
-/* Tail on Right */
-
-.employee-voices__item--reverse .employee-voices__item-message::before {
-    left: auto;
-    right: -22px;
-
-    border-right: none;
-    border-left: 22px solid #e2e2e2;
-}
 
 
 /* =========================================================
    CTA
 ========================================================= */
+.cta{
+    position: relative;
+    /* Dimensions and rounded corners */
+    height: 350px;
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    border-radius: 20px;
+    background: linear-gradient(160deg, #47f9ad 0%, #005095 80%);
+    
+    /* Perfect Center Alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center;     /* Centers content horizontally */
+    
+    /* Increased gap so the popping avatars don't touch the text */
+    gap: 80px; 
+    padding: 0;
+}
 
-.cta-section {
-    padding: 80px 20px;
-
-    background: #fff;
-
+/* =========================================================
+   CTA Title
+========================================================= */
+.cta__content {
+    /* Force margins to 0 so it doesn't push the layout off-center */
+    margin: 0; 
+    padding: 0;
     text-align: center;
 }
 
-
-/* =========================================================
-   Header
-========================================================= */
-
-.site-header {
-    width: 100%;
-
-    background: #fff;
-
-    border-bottom: 1px solid #ddd;
+.cta__title {
+    /* Browsers add default margins to <h1> tags, this removes them */
+    margin: 0; 
+    color: white;
+    font-weight: 500;
+    font-size: 36px;
 }
 
-.site-header__inner {
-    min-height: 90px;
+/* =========================================================
+   08. Hero Bottom Avatar Buttons
+========================================================= */
+.cta__buttons {
+    display: flex;
+    gap: 30px; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%;
+}
 
+/* The Pill Shape */
+.cta__button {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
+    
+    width: 320px; 
+    max-width: 100%;
+    padding: 25px 20px 25px 100px; /* 100px left padding makes room for avatar */
+    
+    background-color: #ffffff;
+    color: #222222;
+    text-decoration: none;
+    border-radius: 50px; 
+    
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.cta__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* The "Pop-Out" Avatar Image Wrapper */
+.cta__button-avatar {
+    position: absolute;
+    bottom: 0; 
+    left: 20px;
+    
+    /* Scales image taller than the button to break out of the top */
+    height: 135%; 
+    
+    display: flex;
+    align-items: flex-end; 
+    pointer-events: none; 
+    z-index: 1;
+}
+
+.cta__button-avatar img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+/* Elevate text and icon above the avatar wrapper */
+.cta__button-text,
+.cta__button-icon {
+    position: relative;
+    z-index: 2; 
+}
+
+.cta__button-text {
+    margin-left: 20px;
+}
+
+/* The circular arrow icon on the right */
+.cta__button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 40px;
+    height: 40px;
+    
+    background-color: #005095; 
+    color: #ffffff;            
+    border-radius: 50%;
+    flex-shrink: 0; 
+}
+
+.cta__button-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+
+
+
+/* =========================================================
+   Footer Section
+========================================================= */
+
+.footer {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 80px 0 60px; /* Generous padding for breathing room */
+}
+
+.footer__content {
+    /* Uses your standard container width */
+    width: min(1200px, 90%); 
+    margin: 0 auto;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aligns the bottom of the left and right containers */
+    flex-wrap: wrap; 
     gap: 40px;
 }
 
-.site-header__logo img {
-    display: block;
-
-    width: 300px;
-    height: auto;
-}
-
-.site-header__nav ul {
+/* --- Footer Left --- */
+.footer__left {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+}
 
-    gap: 30px;
+.footer__logo {
+    display: block;
+    margin-bottom: 40px;
+    width: 220px; /* Adjust based on your logo size */
+}
 
+.footer__logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer__tagline {
     margin: 0;
-    padding: 0;
-
-    list-style: none;
+    font-size: 28px;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: 2px;
+    
+    /* Using a serif font (Mincho) to match the elegant style in the screenshot */
+    font-family: "Noto Serif JP", "Yu Mincho", "MS Mincho", serif; 
 }
 
-.site-header__nav a {
-    color: #222;
-    text-decoration: none;
-}
-
-.site-header__contact a {
-    display: inline-block;
-
-    padding: 14px 25px;
-
-    color: #fff;
-    background: #222;
-
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   Footer
-========================================================= */
-
-.site-footer {
-    padding: 70px 0 70px;
-
-    background: #aaaaaa;
-
-    color: #000;
-
+/* --- Footer Right --- */
+.footer__right {
     text-align: right;
 }
 
-.site-footer__logo img {
+.footer__link {
     display: block;
-
-    width: 360px;
-    height: auto;
-
-    margin-left: auto;
-}
-
-.site-footer__company .site-website-name, .site-copyright {
-    margin: 20px 0 0;
-
-    font-size: 20px;
-}
-
-.site-footer__company .site-website-name a {
-    color: #000;
-
+    font-size: 12px;
+    color: #999999;
     text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
-.site-footer__bottom {
-    margin-top: 50px;
-    margin-bottom: 30px;
+.footer__link:hover {
+    color: #005095;
+    text-decoration: underline;
 }
 
-.site-footer__bottom p {
+.footer__copyright {
     margin: 0;
-
-    font-size: 20px;
+    font-size: 12px;
+    color: #999999;
 }
+
+/* =========================================================
+   Sticky Back to Top Button
+========================================================= */
+
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 999; /* Ensures it stays above all other content */
+    
+    width: 50px;
+    height: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #ffffff;
+    border: 1px solid #005095; /* Blue outline */
+    border-radius: 50%;
+    color: #005095; /* Blue arrow */
+    
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hover effect */
+.back-to-top:hover {
+    background-color: #005095;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .footer__content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .footer__right {
+        text-align: left;
+    }
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+
+
+
+
+
+
 
 
 /* =========================================================
