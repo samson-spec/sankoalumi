@@ -845,7 +845,7 @@ a {
     width: max-content; /* Allows track to be as wide as all images combined */
     
     /* The scrolling animation. Change '40s' to make it faster or slower */
-    animation: gallery-scroll 40s linear infinite;
+    animation: gallery-scroll 70s linear infinite;
 }
 
 /* Optional: Pauses the continuous scrolling when a user hovers over the images */
@@ -863,7 +863,7 @@ a {
 }
 
 .gallery-img {
-    width: 300px;
+    width: 500px;
     flex-shrink: 0;
     border-radius: 15px;
     object-fit: cover;
@@ -873,10 +873,10 @@ a {
 /* 
    Staggered Layout Adjustments 
 */
-.gallery-img--1 { height: 260px; transform: translateY(-20px); }
-.gallery-img--2 { height: 200px; transform: translateY(20px); }
-.gallery-img--3 { height: 240px; transform: translateY(-10px) rotate(1deg); }
-.gallery-img--4 { height: 230px; transform: translateY(30px); }
+.gallery-img--1 { height: 300px; transform: translateY(-20px) rotate(-2deg); }
+.gallery-img--2 { height: 300px; transform: translateY(30px); }
+.gallery-img--3 { height: 300px; transform: translateY(-20px) rotate(2deg); }
+.gallery-img--4 { height: 300px; transform: translateY(30px); }
 
 
 /* The Continuous Loop Animation */
