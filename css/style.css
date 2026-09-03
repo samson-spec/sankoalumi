@@ -276,6 +276,12 @@ a { color: inherit; text-decoration: none; }
 /* =========================================================
    Employee Voices Section
 ========================================================= */
+
+/* Hide the mobile line break on Desktop by default */
+.br-mobile {
+    display: none;
+}
+
 .employee-voices {
     position: relative;
     background-color: #eaf1f8;
@@ -306,7 +312,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Slider */
 .employee-voices__slider { width: 100%; overflow: hidden; padding: 40px 0; }
-.employee-voices__slider-track { display: flex; width: max-content; animation: gallery-scroll 70s linear infinite; }
+.employee-voices__slider-track { display: flex; width: max-content; animation: gallery-scroll 80s linear infinite; }
 .gallery-set { display: flex; flex-shrink: 0; gap: 20px; padding-right: 20px; }
 .gallery-img { width: 500px; flex-shrink: 0; border-radius: 15px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .gallery-img--1, .gallery-img--3, .gallery-img--5, .gallery-img--7 { height: 300px; transform: translateY(-20px) rotate(-2deg); }
@@ -364,6 +370,11 @@ a { color: inherit; text-decoration: none; }
    Media Queries
 ========================================================= */
 @media (max-width: 768px) {
+    
+    /* Common */
+    .section-label{
+        font-size: 18px;
+    }
 
 
     /* =========================================================
@@ -520,6 +531,106 @@ a { color: inherit; text-decoration: none; }
         margin-top: 10px;
     }
 
+    /* =========================================================
+    Employee Voices 
+    ========================================================= */
+    
+    /* Hide the desktop line break on Mobile */
+    .br-desktop {
+        display: none;
+    }
+    
+    /* Show the mobile line break */
+    .br-mobile {
+        display: inline;
+    }
+
+
+    /* Align the entire header section to the left */
+    .employee-voices__header {
+        text-align: left;
+        margin-bottom: 30px; /* Optional: Slightly less gap on mobile */
+    }
+
+    /* Push the dot and "先輩の声" text to the left edge */
+    .employee-voices__header .section-label {
+        justify-content: flex-start;
+    }
+
+    /* 1. Remove the top curve on mobile */
+    .employee-voices::before {
+        display: none;
+    }
+
+    /* 2. Adjust section padding/margins for mobile */
+    .employee-voices {
+        margin-top: 50px; 
+        margin-bottom: -150px; 
+        padding: 40px 0 200px; /* Less padding since curve is gone */
+    }
+
+    .employee-voices__title {
+        font-size: 24px;
+    }
+
+    /* 3. Adjust Employee Cards */
+    .employee-voices__cards {
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .voice-card {
+        padding: 25px 20px;
+        /* Keep it horizontal like desktop */
+        flex-direction: row; 
+        align-items: flex-start;
+        text-align: left;
+        gap: 15px;
+    }
+
+    .voice-card__avatar {
+        /* Shrink avatar so it fits next to the text on small screens */
+        width: 100px;
+        height: 100px;
+    }
+
+    .voice-card__role {
+        font-size: 16px;
+    }
+
+    .voice-card__demo {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .voice-card__text {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 4. Scale down Slider Images */
+    .employee-voices__slider {
+        padding: 20px 0;
+    }
+
+    .gallery-img {
+        width: 220px; /* Smaller image width */
+        border-radius: 10px;
+    }
+
+    /* Adjust staggered heights and transforms for smaller mobile images */
+    .gallery-img--1, .gallery-img--3, .gallery-img--5, .gallery-img--7 { 
+        height: 160px; 
+        transform: translateY(-10px) rotate(-2deg); 
+    }
+    .gallery-img--3, .gallery-img--7 { 
+        transform: translateY(-10px) rotate(2deg); 
+    }
+    .gallery-img--2, .gallery-img--4, .gallery-img--6, .gallery-img--8 { 
+        height: 160px; 
+        transform: translateY(15px); 
+    }
+
 
 }
 
@@ -580,7 +691,7 @@ a { color: inherit; text-decoration: none; }
     /* =========================================================
     About Section
     ========================================================= */
-    .about__title {
+    /* .about__title {
         font-size: 45px;
     }
 
@@ -612,12 +723,12 @@ a { color: inherit; text-decoration: none; }
 
     .about__card-note {
         font-size: 9px;
-    }
+    } */
 
-    .about__grid-footer {
-        font-size: 15px;
+    /* .about__grid-footer {
+        font-size: 15px; */
         /* text-align: center; */
-    }
+    /* } */
 }
 
 
