@@ -362,6 +362,44 @@ a { color: inherit; text-decoration: none; }
 ========================================================= */
 @media (max-width: 768px) {
 
+
+    /* =========================================================
+    Buttons
+    ========================================================= */
+    /* 1. Reduce the gap between the stacked buttons */
+    .action-buttons {
+      gap: 30px; flex-direction: row; 
+    }
+
+    /* 2. Make the button pill less chunky */
+    .btn-pill {
+        padding: 20px 15px 20px 80px; /* Reduced top/bottom padding and left offset */
+        font-size: 16px;              /* Slightly smaller text */
+        width: 100%;                  /* Allow it to fill the mobile container safely */
+    }
+
+    /* 3. Shift the avatar a bit to the left to match the new padding */
+    .btn-pill__avatar {
+        left: 15px; 
+        /* height remains 135% - it will automatically shrink because the button is now shorter! */
+    }
+
+    /* 4. Pull the text a bit closer to the avatar */
+    .btn-pill__text {
+        margin-left: 20px; 
+    }
+
+    /* 5. Scale down the circular icon slightly */
+    .btn-pill__icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-pill__icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
     /* =========================================================
     HERO Section
     ========================================================= */
@@ -424,10 +462,10 @@ a { color: inherit; text-decoration: none; }
     }
 
     /* Hero Bottom */
-    .hero-bottom{padding-bottom: 50px;}
+    .hero-bottom{padding: 0 20px 50px 20px;}
 
     .hero-bottom__content { margin-top: 150px;  }
-    .hero-bottom .action-buttons{ gap: 50px; flex-direction: row; }
+
 
 }
 
@@ -482,6 +520,8 @@ a { color: inherit; text-decoration: none; }
         font-size: 13px;
     }
 }
+
+
 
 
 
