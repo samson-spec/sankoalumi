@@ -172,6 +172,7 @@ a { color: inherit; text-decoration: none; }
     content: ""; position: absolute;
     width: 20px; height: 20px; background-color: transparent;
     pointer-events: none;
+    transform: translateZ(0);
 }
 .hero__logo-wrapper::before {
     top: 0; right: -20px;
