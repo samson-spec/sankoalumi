@@ -486,7 +486,7 @@ a { color: inherit; text-decoration: none; }
     .about__grid {
         grid-template-columns: repeat(2, 1fr); /* Forces 2 columns */
         gap: 10px; /* Slightly tighter gap for mobile */
-        margin-top: 30px;
+        margin-top: 0px;
     }
 
     /* Scale down the card contents to fit side-by-side */
