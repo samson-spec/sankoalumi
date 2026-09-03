@@ -614,17 +614,19 @@ a { color: inherit; text-decoration: none; }
         line-height: 1.6;
     }
 
-    /* 4. Scale down Slider Images */
+    .employee-voices__slider {
+        display: none;
+    }
+
+    /* 
     .employee-voices__slider {
         padding: 20px 0;
     }
 
     .gallery-img {
-        width: 220px; /* Smaller image width */
+        width: 220px; 
         border-radius: 10px;
     }
-
-    /* Adjust staggered heights and transforms for smaller mobile images */
     .gallery-img--1, .gallery-img--3, .gallery-img--5, .gallery-img--7 { 
         height: 160px; 
         transform: translateY(-10px) rotate(-2deg); 
@@ -635,7 +637,7 @@ a { color: inherit; text-decoration: none; }
     .gallery-img--2, .gallery-img--4, .gallery-img--6, .gallery-img--8 { 
         height: 160px; 
         transform: translateY(15px); 
-    }
+    } */
 
 
     /* =========================================================
@@ -748,50 +750,6 @@ a { color: inherit; text-decoration: none; }
     .hero__subtitle {
         font-size: 13px;
     }
-
-
-
-    /* =========================================================
-    About Section
-    ========================================================= */
-    /* .about__title {
-        font-size: 45px;
-    }
-
-    .about__grid {
-        gap: 8px; 
-    }
-
-    .about__card {
-        padding: 15px 5px;
-        border-radius: 8px;
-    }
-
-    .about__card-title {
-        font-size: 13px; 
-    }
-
-    .about__card-main {
-        font-size: 16px;
-    }
-
-    .about__card-main span {
-        font-size: 28px;
-    }
-
-    .about__card-icon {
-        height: 35px;
-        margin: 8px 0;
-    }
-
-    .about__card-note {
-        font-size: 9px;
-    } */
-
-    /* .about__grid-footer {
-        font-size: 15px; */
-        /* text-align: center; */
-    /* } */
 }
 
 
