@@ -451,8 +451,8 @@ a { color: inherit; text-decoration: none; }
     }
 
     .hero__pr-circle {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
     }
 
     .hero__yt-icon svg {
