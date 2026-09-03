@@ -150,6 +150,8 @@ a { color: inherit; text-decoration: none; }
     height: 100%;
     object-fit: cover; 
     z-index: 0;
+
+    /* margin: 0.5px 0 0 0.5px !important; */
 }
 .hero-top::before {
     content: "";
@@ -157,6 +159,8 @@ a { color: inherit; text-decoration: none; }
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1; 
+
+    /* margin: 0.5px 0 0 0.5px !important; */
 }
 
 /* Hero Logo Trick */
@@ -167,6 +171,7 @@ a { color: inherit; text-decoration: none; }
     padding: 30px 30px 30px 5px; 
     border-radius: 15px 0 20px 0; 
     z-index: 10; 
+    
 }
 .hero__logo-wrapper::before, .hero__logo-wrapper::after {
     content: ""; position: absolute;
