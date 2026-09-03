@@ -431,6 +431,58 @@ a { color: inherit; text-decoration: none; }
 
 }
 
+/* =========================================================
+   Ultra-Small Mobile View (Screens under 400px / ~320px phones)
+========================================================= */
+@media (max-width: 400px) {
+    /* 1. Shrink the white background behind the logo so it doesn't hit the circle */
+    .hero__logo-wrapper {
+        padding: 15px 15px 15px 5px; 
+    }
+    
+    .hero__logo img {
+        height: 25px; /* Slightly smaller logo */
+    }
+
+    /* 2. Shrink the PR circle more to save space at the top */
+    .hero__pr {
+        top: 15px;
+        right: 10px;
+    }
+
+    .hero__pr-circle {
+        width: 90px;
+        height: 90px;
+    }
+
+    .hero__yt-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hero__pr-circle text {
+        font-size: 8px; /* Fit the rotating text on the smaller circle */
+    }
+
+    .hero__pr-circle span:not(.hero__yt-icon) {
+        font-size: 9px;
+    }
+
+    /* 3. Scale down the typography so long Japanese words don't overflow */
+    .hero-content {
+        padding: 20px 15px; /* Less padding to give text more room */
+    }
+
+    .hero__title {
+        font-size: 24px; 
+        margin-bottom: 8px;
+    }
+
+    .hero__subtitle {
+        font-size: 13px;
+    }
+}
+
 
 
 @media (max-width: 900px) {
