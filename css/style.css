@@ -461,7 +461,7 @@ a { color: inherit; text-decoration: none; }
     }
 
     .hero__pr-circle text {
-        font-size: 8px; /* Fit the rotating text on the smaller circle */
+        font-size: 17.3px; /* Fit the rotating text on the smaller circle */
     }
 
     .hero__pr-circle span:not(.hero__yt-icon) {
