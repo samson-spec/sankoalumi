@@ -4,446 +4,297 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanko Aluminum Inc.</title>
-
     <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="home">
 
+        <!-- =========================
+             Hero Section
+        ========================== -->
         <section class="hero">
-
-            <!-- hero top part -->
+            <!-- Hero Top -->
             <div class="hero-top">
-
-                <!-- Background Video -->
                 <video class="hero__video" autoplay loop muted playsinline>
                     <source src="assets/hero-video.mp4" type="video/mp4">
                 </video>
 
-                <!-- Logo -->
                 <div class="hero__logo-wrapper">
                     <a href="#" class="hero__logo">
                         <img src="./img/logo.png" alt="Sanko Alumi Inc">
                     </a>
                 </div>
 
-                <!-- Hero Content-->
                 <div class="hero-content">
-
                     <div class="hero__recruitment">
-
-                        <h1 class="hero__title">
-                            あなたが飲む薬、<br>
-                            私たちのアルミ印刷が<br>
-                            支えています
-                        </h1>
-
-                        <h3 class="hero__subtitle">
-                            共に未来をつくる仲間を募集中
-                        </h3>
-
+                        <h1 class="hero__title">あなたが飲む薬、<br>私たちのアルミ印刷が<br>支えています</h1>
+                        <h3 class="hero__subtitle">共に未来をつくる仲間を募集中</h3>
                     </div>
 
                     <div class="hero__pr">
-
                         <a href="https://www.youtube.com/watch?v=i7g4HEJOZac" target="_blank" class="hero__pr-circle">
-
-                            <!-- Rotating Text -->
                             <svg viewBox="0 0 250 250" aria-hidden="true">
                                 <defs>
-                                    <path
-                                        id="circle-path"
-                                        d="
-                                            M 125,125
-                                            m -105,0
-                                            a 105,105 0 1,1 210,0
-                                            a 105,105 0 1,1 -210,0
-                                        "
-                                    />
+                                    <path id="circle-path" d="M 125,125 m -105,0 a 105,105 0 1,1 210,0 a 105,105 0 1,1 -210,0"/>
                                 </defs>
-
                                 <text>
-                                    <textPath
-                                        href="#circle-path"
-                                        startOffset="0%"
-                                    >
+                                    <textPath href="#circle-path" startOffset="0%">
                                         watch a video  watch a video  watch a video  watch a video  watch a video
                                     </textPath>
                                 </text>
                             </svg>
-
-                            <!-- Fixed Center Content -->
                             <span class="hero__yt-icon">
                                 <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <rect
-                                        x="3"
-                                        y="5"
-                                        width="18"
-                                        height="14"
-                                        rx="4"
-                                        fill="none"
-                                        stroke="white"
-                                        stroke-width="1"
-                                    />
-                                    <path
-                                        d="M10 9 L16 12 L10 15 Z"
-                                        fill="none"
-                                        stroke="white"
-                                        stroke-width="1"
-                                        stroke-linejoin="round"
-                                    />
+                                    <rect x="3" y="5" width="18" height="14" rx="4" fill="none" stroke="white" stroke-width="1"/>
+                                    <path d="M10 9 L16 12 L10 15 Z" fill="none" stroke="white" stroke-width="1" stroke-linejoin="round"/>
                                 </svg>
                             </span>
-
                             <span>採用 PR アニメ</span>
                             <span>公開中!</span>
-
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- hero bottom part -->
+            <!-- Hero Bottom -->
             <div class="hero-bottom">
-
                 <div class="hero-bottom__content">
-                    <h1 class="hero-bottom__title">働く環境・求人を見る</h1>
+                    <h2 class="hero-bottom__title">働く環境・求人を見る</h2>
                 </div>
 
-                <!-- 3 Buttons Container -->
-                <div class="hero-bottom__buttons">
-                    
-                    <a href="https://job-draft.com/jobs/7379" target="_blank" class="hero-bottom__button">
-                        <!-- Avatar Added Here -->
-                        <div class="hero-bottom__button-avatar">
+                <!-- Reusable Buttons Component -->
+                <div class="action-buttons">
+                    <a href="https://job-draft.com/jobs/7379" target="_blank" class="btn-pill">
+                        <div class="btn-pill__avatar">
                             <img src="img/avatar-1.png" alt="高卒採用">
                         </div>
-                        <span class="hero-bottom__button-text">高卒採用</span>
-                        <span class="hero-bottom__button-icon" style="background-color: #f27b59;"> <!-- Matching the orange color from screenshot -->
+                        <span class="btn-pill__text">高卒採用</span>
+                        <span class="btn-pill__icon" style="background-color: #f27b59;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                             </svg>
                         </span>
                     </a>
 
-                    <a href="https://job.mynavi.jp/27/pc/search/corp296537/outline.html" target="_blank" class="hero-bottom__button">
-                        <!-- Avatar Added Here -->
-                        <div class="hero-bottom__button-avatar">
+                    <a href="https://job.mynavi.jp/27/pc/search/corp296537/outline.html" target="_blank" class="btn-pill">
+                        <div class="btn-pill__avatar">
                             <img src="img/avatar-2.png" alt="大卒採用">
                         </div>
-                        <span class="hero-bottom__button-text">大卒採用</span>
-                        <span class="hero-bottom__button-icon" style="background-color: #4ebce3;"> <!-- Matching the light blue color from screenshot -->
+                        <span class="btn-pill__text">大卒採用</span>
+                        <span class="btn-pill__icon" style="background-color: #4ebce3;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                             </svg>
                         </span>
                     </a>
 
-                    <a href="https://arwrk.net/recruit/sankoalumi/" target="_blank" class="hero-bottom__button">
-                        <!-- Avatar Added Here -->
-                        <div class="hero-bottom__button-avatar">
+                    <a href="https://arwrk.net/recruit/sankoalumi/" target="_blank" class="btn-pill">
+                        <div class="btn-pill__avatar">
                             <img src="img/avatar-3.png" alt="中途採用">
                         </div>
-                        <span class="hero-bottom__button-text">中途採用</span>
-                        <span class="hero-bottom__button-icon" style="background-color: #005095;"> <!-- Default dark blue -->
+                        <span class="btn-pill__text">中途採用</span>
+                        <span class="btn-pill__icon" style="background-color: #005095;">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                             </svg>
                         </span>
                     </a>
-
                 </div>
-
             </div>
-
         </section>
-
-
-
-
-
-    <!-- =========================
-         About Section
-    ========================== -->
-
-    <section class="about">
-
-        <div class="about__content">
-            
-            <!-- Wrapper to hide the overflowing text -->
-            <div class="about__marquee">
-                <!-- Inner container that actually moves -->
-                <div class="about__marquee-inner">
-                    
-                    <h1 class="about__title">
-                        ABOUT SANKOALUMI ABOUT SANKOALUMI ABOUT SANKOALUMI
-                    </h1>
-                    
-                    <!-- Duplicated text for a seamless loop -->
-                    <h1 class="about__title" aria-hidden="true">
-                        ABOUT SANKOALUMI ABOUT SANKOALUMI ABOUT SANKOALUMI
-                    </h1>
-                    
-                </div>
-            </div>
-
-            <!-- =========================
-                 2 Column Section
-            ========================== -->
-            <div class="about__columns">
-                
-                <!-- Left Column -->
-                <div class="about__col-left">
-                    <p class="about__label"><span class="about__label-dot"></span>三光アルミとは</p>
-                    
-                    <h2 class="about__heading">
-                        医薬品や食品など、<br>
-                        パッケージの印刷・加工を<br>
-                        幅広く手がける会社です。
-                    </h2>
-                    
-                    <div class="about__image-wrapper">
-                        <img src="img/stacked-img.png" alt="工場見学" class="about__image">
-                        
-                        <!-- Floating Badge -->
-                        <!-- <div class="about__badge">
-                            入社後は工場見学・<br>
-                            安全研修から<br>
-                            スタート！
-                        </div> -->
-                    </div>
-                </div>
-
-                <!-- Right Column -->
-                <div class="about__col-right">
-                    
-                    <div class="about__grid">
-                        
-                        <!-- Card 1 -->
-                        <div class="about__card">
-                            <div class="about__card-title">年間休日数</div>
-                            <div class="about__card-main">約<span>140</span>日</div>
-                            <!-- Replace with actual illustration -->
-                            <img src="img/icon-1.png" alt="Relax" class="about__card-icon">
-                            <div class="about__card-note">※入社3ヶ月は日勤勤務のみ</div>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="about__card">
-                            <div class="about__card-title">毎月の残業</div>
-                            <div class="about__card-main">約<span>10</span>時間</div>
-                            <!-- Replace with actual illustration -->
-                            <img src="img/icon-2.png" alt="Briefcase" class="about__card-icon">
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="about__card">
-                            <div class="about__card-title">自動販売機完備</div>
-                            <div class="about__card-main">利用無料</div>
-                            <!-- Replace with actual illustration -->
-                            <img src="img/icon-3.png" alt="Vending Machine" class="about__card-icon">
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="about__card">
-                            <div class="about__card-title">昼食は実質</div>
-                            <div class="about__card-main">約<span>180</span>円</div>
-                            <!-- Replace with actual illustration -->
-                            <img src="img/icon-4.png" alt="Lunch" class="about__card-icon">
-                            <div class="about__card-note">※昼食補助200円を利用し、お弁当を購入できます</div>
-                        </div>
-
-                    </div>
-
-                    <p class="about__grid-footer">など福利厚生も充実！</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- =========================
-         Employee Voices
-    ========================== -->
-    <section class="employee-voices">
-        
-        <div class="employee-voices__inner">
-            
-            <!-- Section Header -->
-            <div class="employee-voices__header">
-                <p class="employee-voices__label">
-                    <span class="employee-voices__label-dot"></span>先輩の声
-                </p>
-                <h2 class="employee-voices__title">
-                    私たちと一緒に、ものづくりの現場で<br>
-                    挑戦してみませんか?
-                </h2>
-            </div>
-
-            <!-- Voice Cards -->
-            <div class="employee-voices__cards">
-                
-                <!-- Card 1 -->
-                <div class="voice-card">
-                    <div class="voice-card__avatar">
-                        <img src="img/emp-avatar-2.png" alt="印刷オペレーター">
-                    </div>
-                    <div class="voice-card__content">
-                        <h3 class="voice-card__role">印刷オペレーター</h3>
-                        <p class="voice-card__demo">（20代男性）</p>
-                        <p class="voice-card__text">
-                            機械の操作や部材の準備など、未経験からでも丁寧に教えてもらえたので安心できました。<br>
-                            自分が加工に関わった製品を身近で見かけると誇らしく感じます。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="voice-card">
-                    <div class="voice-card__avatar">
-                        <img src="img/emp-avatar-1.png" alt="仕上部門オペレーター">
-                    </div>
-                    <div class="voice-card__content">
-                        <h3 class="voice-card__role">仕上部門オペレーター</h3>
-                        <p class="voice-card__demo">（30代男性）</p>
-                        <p class="voice-card__text">
-                            社内の風通しが良く、困ったときはチーム全体でフォローし合える環境です。<br>
-                            残業も少なくメリハリを持って働けるため、プライベートの時間も大切にできています。
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- The Full-Width Continuous Slider -->
-        <div class="employee-voices__slider">
-            <div class="employee-voices__slider-track">
-                
-                <!-- Image Set 1 (8 images total to ensure it is wider than the screen) -->
-                <div class="gallery-set">
-                    <img src="img/emp-img-1.JPG" alt="工場作業風景1" class="gallery-img gallery-img--1">
-                    <img src="img/emp-img-2.png" alt="工場作業風景2" class="gallery-img gallery-img--2">
-                    <img src="img/emp-img-3.JPG" alt="工場作業風景3" class="gallery-img gallery-img--3">
-                    <img src="img/emp-img-4.JPG" alt="工場作業風景4" class="gallery-img gallery-img--4">
-                    <!-- Repeated -->
-                    <img src="img/emp-img-5.JPG" alt="工場作業風景1" class="gallery-img gallery-img--5">
-                    <img src="img/emp-img-6.jpg" alt="工場作業風景2" class="gallery-img gallery-img--6">
-                    <img src="img/emp-img-7.jpg" alt="工場作業風景3" class="gallery-img gallery-img--7">
-                    <img src="img/emp-img-8.JPG" alt="工場作業風景4" class="gallery-img gallery-img--8">
-                </div>
-
-                <!-- Image Set 2 (Exact same 8 images duplicated for the seamless loop) -->
-                <div class="gallery-set" aria-hidden="true">
-                    <img src="img/emp-img-1.JPG" alt="工場作業風景1" class="gallery-img gallery-img--1">
-                    <img src="img/emp-img-2.png" alt="工場作業風景2" class="gallery-img gallery-img--2">
-                    <img src="img/emp-img-3.JPG" alt="工場作業風景3" class="gallery-img gallery-img--3">
-                    <img src="img/emp-img-4.JPG" alt="工場作業風景4" class="gallery-img gallery-img--4">
-                    <!-- Repeated -->
-                    <img src="img/emp-img-5.JPG" alt="工場作業風景1" class="gallery-img gallery-img--5">
-                    <img src="img/emp-img-6.jpg" alt="工場作業風景2" class="gallery-img gallery-img--6">
-                    <img src="img/emp-img-7.jpg" alt="工場作業風景3" class="gallery-img gallery-img--7">
-                    <img src="img/emp-img-8.JPG" alt="工場作業風景4" class="gallery-img gallery-img--8">
-                </div>
-
-            </div>
-        </div>
-        
-    </section>
-
-
-
-        <section class="cta">
-            <div class="cta__content">
-                <h1 class="cta__title">三光アルミをもっと知る</h1>
-            </div>
-
-            <!-- 3 Buttons Container -->
-            <div class="cta__buttons">
-                
-                <a href="https://job-draft.com/jobs/7379" target="_blank" class="cta__button">
-                    <!-- Avatar Added Here -->
-                    <div class="cta__button-avatar">
-                        <img src="img/avatar-1.png" alt="高卒採用">
-                    </div>
-                    <span class="cta__button-text">高卒採用</span>
-                    <span class="cta__button-icon" style="background-color: #f27b59;"> <!-- Matching the orange color from screenshot -->
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="https://job.mynavi.jp/27/pc/search/corp296537/outline.html" target="_blank" class="cta__button">
-                    <!-- Avatar Added Here -->
-                    <div class="cta__button-avatar">
-                        <img src="img/avatar-2.png" alt="大卒採用">
-                    </div>
-                    <span class="cta__button-text">大卒採用</span>
-                    <span class="cta__button-icon" style="background-color: #4ebce3;"> <!-- Matching the light blue color from screenshot -->
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="https://arwrk.net/recruit/sankoalumi/" target="_blank" class="cta__button">
-                    <!-- Avatar Added Here -->
-                    <div class="cta__button-avatar">
-                        <img src="img/avatar-3.png" alt="中途採用">
-                    </div>
-                    <span class="cta__button-text">中途採用</span>
-                    <span class="cta__button-icon" style="background-color: #005095;"> <!-- Default dark blue -->
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </a>
-
-            </div>
-
-        </section>
-
 
         <!-- =========================
-         Footer
-    ========================== -->
-    <section class="footer">
-        <div class="footer__content">
+             About Section
+        ========================== -->
+        <section class="about">
+            <div class="about__content">
+                <div class="about__marquee">
+                    <div class="about__marquee-inner">
+                        <h2 class="about__title">ABOUT SANKOALUMI ABOUT SANKOALUMI ABOUT SANKOALUMI</h2>
+                        <h2 class="about__title" aria-hidden="true">ABOUT SANKOALUMI ABOUT SANKOALUMI ABOUT SANKOALUMI</h2>
+                    </div>
+                </div>
+
+                <div class="about__columns">
+                    <!-- Left Column -->
+                    <div class="about__col-left">
+                        <p class="section-label"><span class="section-label__dot"></span>三光アルミとは</p>
+                        <h2 class="about__heading">
+                            医薬品や食品など、<br>パッケージの印刷・加工を<br>幅広く手がける会社です。
+                        </h2>
+                        <div class="about__image-wrapper">
+                            <img src="img/stacked-img.png" alt="工場見学" class="about__image">
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="about__col-right">
+                        <div class="about__grid">
+                            <div class="about__card">
+                                <div class="about__card-title">年間休日数</div>
+                                <div class="about__card-main">約<span>140</span>日</div>
+                                <img src="img/icon-1.png" alt="Relax" class="about__card-icon">
+                                <div class="about__card-note">※入社3ヶ月は日勤勤務のみ</div>
+                            </div>
+                            <div class="about__card">
+                                <div class="about__card-title">毎月の残業</div>
+                                <div class="about__card-main">約<span>10</span>時間</div>
+                                <img src="img/icon-2.png" alt="Briefcase" class="about__card-icon">
+                            </div>
+                            <div class="about__card">
+                                <div class="about__card-title">自動販売機完備</div>
+                                <div class="about__card-main">利用無料</div>
+                                <img src="img/icon-3.png" alt="Vending Machine" class="about__card-icon">
+                            </div>
+                            <div class="about__card">
+                                <div class="about__card-title">昼食は実質</div>
+                                <div class="about__card-main">約<span>180</span>円</div>
+                                <img src="img/icon-4.png" alt="Lunch" class="about__card-icon">
+                                <div class="about__card-note">※昼食補助200円を利用し、お弁当を購入できます</div>
+                            </div>
+                        </div>
+                        <p class="about__grid-footer">など福利厚生も充実！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             Employee Voices Section
+        ========================== -->
+        <section class="employee-voices">
+            <div class="employee-voices__inner">
+                <div class="employee-voices__header">
+                    <p class="section-label justify-center">
+                        <span class="section-label__dot"></span>先輩の声
+                    </p>
+                    <h2 class="employee-voices__title">私たちと一緒に、ものづくりの現場で<br>挑戦してみませんか?</h2>
+                </div>
+
+                <div class="employee-voices__cards">
+                    <div class="voice-card">
+                        <div class="voice-card__avatar">
+                            <img src="img/emp-avatar-2.png" alt="印刷オペレーター">
+                        </div>
+                        <div class="voice-card__content">
+                            <h3 class="voice-card__role">印刷オペレーター</h3>
+                            <p class="voice-card__demo">（20代男性）</p>
+                            <p class="voice-card__text">機械の操作や部材の準備など、未経験からでも丁寧に教えてもらえたので安心できました。<br>自分が加工に関わった製品を身近で見かけると誇らしく感じます。</p>
+                        </div>
+                    </div>
+                    <div class="voice-card">
+                        <div class="voice-card__avatar">
+                            <img src="img/emp-avatar-1.png" alt="仕上部門オペレーター">
+                        </div>
+                        <div class="voice-card__content">
+                            <h3 class="voice-card__role">仕上部門オペレーター</h3>
+                            <p class="voice-card__demo">（30代男性）</p>
+                            <p class="voice-card__text">社内の風通しが良く、困ったときはチーム全体でフォローし合える環境です。<br>残業も少なくメリハリを持って働けるため、プライベートの時間も大切にできています。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continuous Slider -->
+            <div class="employee-voices__slider">
+                <div class="employee-voices__slider-track">
+                    <div class="gallery-set">
+                        <img src="img/emp-img-1.JPG" alt="" class="gallery-img gallery-img--1">
+                        <img src="img/emp-img-2.png" alt="" class="gallery-img gallery-img--2">
+                        <img src="img/emp-img-3.JPG" alt="" class="gallery-img gallery-img--3">
+                        <img src="img/emp-img-4.JPG" alt="" class="gallery-img gallery-img--4">
+                        <img src="img/emp-img-5.JPG" alt="" class="gallery-img gallery-img--5">
+                        <img src="img/emp-img-6.jpg" alt="" class="gallery-img gallery-img--6">
+                        <img src="img/emp-img-7.jpg" alt="" class="gallery-img gallery-img--7">
+                        <img src="img/emp-img-8.JPG" alt="" class="gallery-img gallery-img--8">
+                    </div>
+                    <div class="gallery-set" aria-hidden="true">
+                        <img src="img/emp-img-1.JPG" alt="" class="gallery-img gallery-img--1">
+                        <img src="img/emp-img-2.png" alt="" class="gallery-img gallery-img--2">
+                        <img src="img/emp-img-3.JPG" alt="" class="gallery-img gallery-img--3">
+                        <img src="img/emp-img-4.JPG" alt="" class="gallery-img gallery-img--4">
+                        <img src="img/emp-img-5.JPG" alt="" class="gallery-img gallery-img--5">
+                        <img src="img/emp-img-6.jpg" alt="" class="gallery-img gallery-img--6">
+                        <img src="img/emp-img-7.jpg" alt="" class="gallery-img gallery-img--7">
+                        <img src="img/emp-img-8.JPG" alt="" class="gallery-img gallery-img--8">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================
+             CTA Section
+        ========================== -->
+        <section class="cta">
+            <h2 class="cta__title">三光アルミをもっと知る</h2>
             
-            <!-- Left Side: Logo & Tagline -->
-            <div class="footer__left">
-                <a href="#" class="footer__logo">
-                    <!-- Replace with your logo path -->
-                    <img src="img/logo.png" alt="Sanko Alumi Inc">
+            <!-- Reused Action Buttons -->
+            <div class="action-buttons">
+                <a href="https://job-draft.com/jobs/7379" target="_blank" class="btn-pill">
+                    <div class="btn-pill__avatar">
+                        <img src="img/avatar-1.png" alt="高卒採用">
+                    </div>
+                    <span class="btn-pill__text">高卒採用</span>
+                    <span class="btn-pill__icon" style="background-color: #f27b59;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </span>
                 </a>
-                <h2 class="footer__tagline">小さなアルミから、大きな未来へ</h2>
+                <a href="https://job.mynavi.jp/27/pc/search/corp296537/outline.html" target="_blank" class="btn-pill">
+                    <div class="btn-pill__avatar">
+                        <img src="img/avatar-2.png" alt="大卒採用">
+                    </div>
+                    <span class="btn-pill__text">大卒採用</span>
+                    <span class="btn-pill__icon" style="background-color: #4ebce3;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
+                <a href="https://arwrk.net/recruit/sankoalumi/" target="_blank" class="btn-pill">
+                    <div class="btn-pill__avatar">
+                        <img src="img/avatar-3.png" alt="中途採用">
+                    </div>
+                    <span class="btn-pill__text">中途採用</span>
+                    <span class="btn-pill__icon" style="background-color: #005095;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </span>
+                </a>
             </div>
+        </section>
 
-            <!-- Right Side: Links & Copyright -->
-            <div class="footer__right">
-                <a href="https://sankoalumi.co.jp/" class="footer__link" target="_blank" rel="noopener">https://sankoalumi.co.jp/</a>
-                <p class="footer__copyright">SANKO ALUMI Inc. &copy; 2025 All Rights reserved.</p>
+        <!-- =========================
+             Footer
+        ========================== -->
+        <footer class="footer">
+            <div class="footer__content">
+                <div class="footer__left">
+                    <a href="#" class="footer__logo">
+                        <img src="img/logo.png" alt="Sanko Alumi Inc">
+                    </a>
+                    <p class="footer__tagline">小さなアルミから、大きな未来へ</p>
+                </div>
+                <div class="footer__right">
+                    <a href="https://sankoalumi.co.jp/" class="footer__link" target="_blank" rel="noopener">https://sankoalumi.co.jp/</a>
+                    <p class="footer__copyright">SANKO ALUMI Inc. &copy; 2025 All Rights reserved.</p>
+                </div>
             </div>
+        </footer>
 
-        </div>
-    </section>
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top" aria-label="Scroll to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 15l6-6 6 6" />
+            </svg>
+        </a>
 
-    <!-- =========================
-         Sticky Back to Top Button
-    ========================== -->
-    <!-- href="#" automatically scrolls to the top of the page natively -->
-    <a href="#" class="back-to-top" aria-label="Scroll to top">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 15l6-6 6 6" />
-        </svg>
-    </a>
-
-
-
-</main>
-    
+    </main>
 </body>
 </html>

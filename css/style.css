@@ -1,25 +1,18 @@
 /*
-Client Name: Sanku Aluminum Inc.
+Client Name: Sanko Aluminum Inc.
 Author: G-Angle
-Description: Custom Landing Page for Sanku Aluminum Inc.
-Version: 1.0
+Description: Custom Landing Page for Sanko Aluminum Inc.
+Version: 1.1
 */
 
-
 /* =========================================================
-   Common
+   Base & Common Styles
 ========================================================= */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
     overflow-x: hidden;
     scroll-behavior: smooth; 
-
 }
 
 body {
@@ -31,143 +24,130 @@ body {
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 section {
     padding: 100px 0;
 }
 
-a {
-    color: inherit;
+a { color: inherit; text-decoration: none; }
+
+/* Common Section Labels */
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #005095;
+    margin-bottom: 20px;
+}
+.section-label.justify-center { justify-content: center; }
+.section-label__dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #005095;
+    border-radius: 50%;
 }
 
-
 /* =========================================================
-   Common Width
+   Reusable Components: Action Buttons
 ========================================================= */
-
-/* .hero-top, */
-.company-intro__inner,
-.recruitment-benefits,
-.employee-voices__inner,
-.site-header__inner,
-.site-footer__inner,
-.site-footer__bottom {
-    width: min(1680px, 90%);
-    margin-right: auto;
-    margin-left: auto;
+.action-buttons {
+    display: flex;
+    gap: 30px; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%;
 }
 
+.btn-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 380px; 
+    max-width: 100%;
+    padding: 30px 20px 30px 100px;
+    background-color: #ffffff;
+    color: #222222;
+    border-radius: 50px; 
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* =========================================================
-   Common Button
-========================================================= */
+.btn-pill:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-.button {
-    display: inline-flex;
+.btn-pill__avatar {
+    position: absolute;
+    bottom: 0; 
+    left: 20px;
+    height: 135%; 
+    display: flex;
+    align-items: flex-end; 
+    pointer-events: none; 
+    z-index: 1;
+}
+
+.btn-pill__avatar img { height: 100%; width: auto; }
+
+.btn-pill__text, .btn-pill__icon {
+    position: relative;
+    z-index: 2; 
+}
+.btn-pill__text { margin-left: 40px; }
+
+.btn-pill__icon {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-
-    padding: 35px 70px;
-
-    border-radius: 20px;
-
-    background: #aaaaaa;
-    color: #000;
-
-    text-decoration: none;
-
-    font-size: 30px;
-    font-weight: 700;
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    background-color: #005095; 
+    color: #ffffff;            
+    border-radius: 50%;
+    flex-shrink: 0; 
 }
-
-.button:hover {
-    background: #999999;
-    transform: translateY(-2px);
-}
-
-
-/* Button Arrow */
-
-.button__arrow {
-    position: relative;
-
-    flex: 0 0 36px;
-
-    width: 36px;
-    height: 36px;
-}
-
-.button__arrow::after {
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-40%, -50%);
-
-    width: 0;
-    height: 0;
-
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 16px solid #656363;
-}
-
+.btn-pill__icon svg { width: 20px; height: 20px; }
 
 /* =========================================================
-   01. Hero Main Container
+   Hero Section
 ========================================================= */
-/* The main wrapper holding both top and bottom sections */
 .hero {
     position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-size: cover;
-    background-position: center;
     padding: 0;
 }
 
-/* =========================================================
-   02. Hero Top Section (Video & Overlay)
-========================================================= */
-/* The top card container that holds the video, logo, and text */
+/* Hero Top */
 .hero-top {
     position: relative;
     display: flex;
     align-items: flex-end;
-    
     width: calc(100% - 60px);
     min-height: 90vh;
-    
-    /* Pulls the bottom section underneath this container by 150px */
     margin: 30px 30px -150px 30px;
-    
     border-radius: 20px;
     overflow: hidden;
 }
 
-/* Background video functioning as a cover */
 .hero__video {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover; 
     z-index: 0;
 }
-
-/* Dark transparent overlay over the video to make text readable */
 .hero-top::before {
     content: "";
     position: absolute;
@@ -176,1531 +156,292 @@ a {
     z-index: 1; 
 }
 
-/* =========================================================
-   03. Hero Logo (Inverted Border-Radius)
-========================================================= */
-/* White background box for the logo */
+/* Hero Logo Trick */
 .hero__logo-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     background-color: #ffffff;
     padding: 30px 30px 30px 5px; 
-    
-    /* Curves the bottom-right corner of the white box itself */
     border-radius: 20px 0 20px 0; 
     z-index: 10; 
 }
-
-/* Inverted corner 1: Top-Right curve connecting to background */
+.hero__logo-wrapper::before, .hero__logo-wrapper::after {
+    content: ""; position: absolute;
+    width: 20px; height: 20px; background-color: transparent;
+    pointer-events: none;
+}
 .hero__logo-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -20px;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border-top-left-radius: 20px;
-    
-    /* Box shadow trick to create the inverted fill */
-    box-shadow: -5px -5px 0 5px #ffffff;
-    pointer-events: none;
+    top: 0; right: -20px;
+    border-top-left-radius: 20px; box-shadow: -5px -5px 0 5px #ffffff;
 }
-
-/* Inverted corner 2: Bottom-Left curve connecting to background */
 .hero__logo-wrapper::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border-top-left-radius: 20px;
-    
-    /* Box shadow trick to create the inverted fill */
-    box-shadow: -5px -5px 0 5px #ffffff;
-    pointer-events: none;
+    bottom: -20px; left: 0;
+    border-top-left-radius: 20px; box-shadow: -5px -5px 0 5px #ffffff;
 }
+.hero__logo img { height: 40px; width: auto; }
 
-.hero__logo {
-    display: block;
-}
-
-.hero__logo img {
-    height: 40px; 
-    width: auto;
-    display: block;
-}
-
-/* =========================================================
-   04. Hero Top Content (Text & PR Circle Wrapper)
-========================================================= */
-/* Sits above the video overlay and aligns items to the bottom */
+/* Hero Content */
 .hero-content {
     position: relative;
     z-index: 2;
     width: 100%;
     padding: 50px 20px;
-    
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 40px;
 }
-
-/* =========================================================
-   05. Recruitment Typography
-========================================================= */
-.hero__recruitment {
-    min-width: 0;
-    text-align: left;
-    padding: 0 50px;
-}
-
+.hero__recruitment { min-width: 0; padding: 0 50px; }
 .hero__title {
     margin: 0;
     font-size: clamp(50px, 5vw, 70px);
-    line-height: 1.5;
-    font-weight: 500;
-    color: white;
+    line-height: 1.5; font-weight: 500; color: white;
 }
+.hero__subtitle { font-size: 40px; color: white; }
 
-.hero__subtitle {
-    font-size: 40px;
-    color: white;
-}
-
-/* =========================================================
-   06. PR Animated Circle Button
-========================================================= */
-.hero__pr {
-    padding: 0 20px;
-}
-
+/* PR Circular Animation Button */
+.hero__pr { padding: 0 20px; }
 .hero__pr-circle {
     position: relative;
-    width: 250px;
-    height: 250px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
+    width: 250px; height: 250px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
     border-radius: 50%;
-    /* background: linear-gradient(120deg, #005095 0%, #40dea2 100%); */
-    
-/* Removed the linear-gradient and added the image */
     background-image: url("../img/circle-btn-pr.png"); 
-    
-    /* Ensures the image covers the entire button */
-    background-size: cover; 
-    
-    /* Centers the image perfectly */
-    background-position: center; 
-    
-    /* Prevents the image from repeating if it's too small */
-    background-repeat: no-repeat; 
-    
-    /* Optional: Add a fallback background color just in case the image fails to load */
-    background-color: #005095;
-
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: 500;
-    line-height: 1.5;
-    
+    background-size: cover; background-position: center; background-repeat: no-repeat; 
+    background-color: #005095; color: white;
+    font-size: 25px; font-weight: 500; line-height: 1.5;
     transition: transform 0.3s ease;
 }
-
-.hero__pr-circle:hover {
-    transform: scale(1.05);
-}
-
-/* Center icon inside the circle */
-.hero__yt-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero__yt-icon svg {
-    width: 50px;
-    height: 50px;
-}
-
-/* The rotating text SVG overlay */
+.hero__pr-circle:hover { transform: scale(1.05); }
+.hero__yt-icon { display: flex; align-items: center; justify-content: center; }
+.hero__yt-icon svg { width: 50px; height: 50px; }
 .hero__pr-circle > svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    animation: rotate-circle-text 30s linear infinite;
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    pointer-events: none; animation: rotate-circle-text 30s linear infinite;
 }
-
 .hero__pr-circle text {
-    fill: rgba(255, 255, 255, 0.5);
-    font-size: 17.3px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+    fill: rgba(255, 255, 255, 0.5); font-size: 16.3px; font-weight: 500; letter-spacing: 1.5px;
 }
+@keyframes rotate-circle-text { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-@keyframes rotate-circle-text {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* =========================================================
-   07. Hero Bottom Section (Gradient Background)
-========================================================= */
+/* Hero Bottom */
 .hero-bottom {
-    width: 100%;
-    min-height: 55vh;
+    width: 100%; min-height: 55vh; margin: 0; padding: 0;
     background: linear-gradient(160deg, #47f9ad 0%, #005095 80%);
-    
-    margin: 0;
-    padding: 0;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px; 
+    display: flex; flex-direction: column; align-items: center; gap: 40px; 
 }
-
-/* Pushes content down to account for the overlapping hero-top (-150px margin) */
-.hero-bottom__content {
-    margin-top: 200px;
-    text-align: center;
-}
-
-.hero-bottom__title {
-    color: white;
-    font-weight: 500;
-    text-align: center;
-}
-
-/* =========================================================
-   08. Hero Bottom Avatar Buttons
-========================================================= */
-.hero-bottom__buttons {
-    display: flex;
-    gap: 30px; 
-    justify-content: center;
-    flex-wrap: wrap; 
-    width: 100%;
-}
-
-/* The Pill Shape */
-.hero-bottom__button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    
-    width: 320px; 
-    max-width: 100%;
-    padding: 25px 20px 25px 100px; /* 100px left padding makes room for avatar */
-    
-    background-color: #ffffff;
-    color: #222222;
-    text-decoration: none;
-    border-radius: 50px; 
-    
-    font-size: 18px;
-    font-weight: 700;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-bottom__button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* The "Pop-Out" Avatar Image Wrapper */
-.hero-bottom__button-avatar {
-    position: absolute;
-    bottom: 0; 
-    left: 20px;
-    
-    /* Scales image taller than the button to break out of the top */
-    height: 135%; 
-    
-    display: flex;
-    align-items: flex-end; 
-    pointer-events: none; 
-    z-index: 1;
-}
-
-.hero-bottom__button-avatar img {
-    height: 100%;
-    width: auto;
-    display: block;
-}
-
-/* Elevate text and icon above the avatar wrapper */
-.hero-bottom__button-text,
-.hero-bottom__button-icon {
-    position: relative;
-    z-index: 2; 
-}
-
-.hero-bottom__button-text {
-    margin-left: 20px;
-}
-
-/* The circular arrow icon on the right */
-.hero-bottom__button-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 40px;
-    height: 40px;
-    
-    background-color: #005095; 
-    color: #ffffff;            
-    border-radius: 50%;
-    flex-shrink: 0; 
-}
-
-.hero-bottom__button-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-
-
-
-
+.hero-bottom__content { margin-top: 200px; text-align: center; }
+.hero-bottom__title { color: white; font-weight: 500; }
 
 /* =========================================================
    About Section
 ========================================================= */
-
-.about {
-    /* Prevent horizontal scrollbars on the entire section */
-    overflow: hidden; 
-    padding: 0 0 50px 0; 
-}
-
-/* Container for the scrolling text */
-.about__marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap; /* Forces text to stay on a single line */
-}
-
-/* The moving wrapper */
-.about__marquee-inner {
-    display: inline-flex;
-    animation: marquee-rtl 40s linear infinite;
-}
-
-/* Typography & Outline Style */
+.about { overflow: hidden; padding: 0 0 50px 0; }
+.about__marquee { width: 100%; overflow: hidden; white-space: nowrap; }
+.about__marquee-inner { display: inline-flex; animation: marquee-rtl 40s linear infinite; }
 .about__title {
-    margin: 0;
-    padding-right: 30px; /* Space between the first and second repeating text */
-    
-    font-size: 100px;
-    font-weight: 800; /* Thick font weight to make the outline look good */
-    
-    /* Creates the transparent text with an outline */
-    color: transparent;
-    -webkit-text-stroke: 2px #d4e5f4; /* Light blue outline */
-    
-    /* Optional: ensures text doesn't collapse if you type lowercase */
-    text-transform: uppercase; 
+    margin: 0; padding-right: 30px; font-size: 100px; font-weight: 800; 
+    color: transparent; -webkit-text-stroke: 2px #d4e5f4; text-transform: uppercase; 
 }
+@keyframes marquee-rtl { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
 
-@keyframes marquee-rtl {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-
-/* =========================================================
-   About 2-Column Layout
-========================================================= */
-
+/* 2 Columns Layout */
 .about__columns {
-    display: flex;
-    flex-wrap: wrap; /* Allows stacking on smaller screens */
-    gap: 50px;
-    justify-content: space-between;
-    
-    width: min(1200px, 90%);
-    margin: 80px auto 0; 
+    display: flex; flex-wrap: wrap; gap: 50px; justify-content: space-between;
+    width: min(1280px, 90%); margin: 80px auto 0; 
 }
+.about__col-left { flex: 1 1 450px; }
+.about__heading { font-size: clamp(24px, 3vw, 44px); line-height: 1.6; font-weight: 700; margin-bottom: 40px; }
+.about__image-wrapper { position: relative; max-width: 500px; }
+.about__image { width: 100%; border-radius: 10px; }
 
-/* =========================================================
-   About Left Column
-========================================================= */
-
-.about__col-left {
-    flex: 1 1 450px;
-}
-
-.about__label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #005095;
-    margin-bottom: 20px;
-}
-
-.about__label-dot {
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: #005095;
-    border-radius: 50%;
-}
-
-.about__heading {
-    font-size: clamp(24px, 3vw, 44px);
-    line-height: 1.6;
-    font-weight: 700;
-    color: #222222;
-    margin-bottom: 40px;
-}
-
-/* Image and overlapping badge */
-.about__image-wrapper {
-    position: relative;
-    max-width: 500px; /* Adjust based on your image size */
-}
-
-.about__image {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-}
-
-.about__badge {
-    position: absolute;
-    top: -20px;
-    right: -40px; 
-    
-    width: 160px;
-    height: 160px;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    background-color: #ffffff;
-    border: 1px solid #005095;
-    border-radius: 50%;
-    
-    font-size: 14px;
-    font-weight: 700;
-    color: #005095;
-    line-height: 1.5;
-}
-
-/* =========================================================
-   About Right Column (Grid Cards)
-========================================================= */
-
-.about__col-right {
-    flex: 1 1 500px;
-}
-
-.about__grid {
-    margin-top: 50px; /* temporary */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
+/* Grid Cards */
+.about__col-right { flex: 1 1 500px; }
+.about__grid { margin-top: 50px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
 .about__card {
-    background-color: #eaf1f8; /* Light blue matching screenshot */
-    border-radius: 10px;
-    padding: 30px 20px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    color: #005095; /* Same dark blue for all text inside cards */
+    background-color: #eaf1f8; border-radius: 10px; padding: 30px 20px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; color: #005095;
 }
-
-.about__card-title {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.about__card-main {
-    font-size: 40px;
-    font-weight: 700;
-}
-
-/* Makes the numbers larger than the kanji around them */
-.about__card-main span {
-    font-size: 60px;
-    margin: 0 5px;
-}
-
-.about__card-icon {
-    height: 60px;
-    width: auto;
-    margin: 15px 0;
-    display: block;
-}
-
-.about__card-note {
-    font-size: 10px;
-    font-weight: 500;
-    margin-top: auto; /* Pushes note to the bottom if cards have different heights */
-}
-
-.about__grid-footer {
-    text-align: right;
-    font-size: 24px;
-    font-weight: 700;
-    color: #005095;
-    margin-top: 15px;
-}
+.about__card-title { font-size: 26px; font-weight: 700; margin-bottom: 5px; }
+.about__card-main { font-size: 40px; font-weight: 700; }
+.about__card-main span { font-size: 60px; margin: 0 5px; }
+.about__card-icon { height: 60px; width: auto; margin: 15px 0; }
+.about__card-note { font-size: 10px; font-weight: 500; margin-top: auto; }
+.about__grid-footer { text-align: right; font-size: 24px; font-weight: 700; color: #005095; margin-top: 15px; }
 
 /* =========================================================
-   Responsive Adjustments
+   Employee Voices Section
 ========================================================= */
-@media (max-width: 900px) {
-    .about__badge {
-        right: -10px; /* Pull the badge inward on smaller screens */
-    }
-}
-
-@media (max-width: 550px) {
-    .about__grid {
-        grid-template-columns: 1fr; /* Stacks cards on mobile */
-    }
-}
-
-
-
-
-
-
-
-/* =========================================================
-   Employee Voices
-========================================================= */
-
-
 .employee-voices {
     position: relative;
-    background-color: #eaf1f8; /* Light blue background */
-    
-    /* Ensure you have enough top margin so the bump doesn't overlap text above it */
-    margin-top: 100px; 
-    margin-bottom: -200px;
-    padding: 20px 0 250px;
+    background-color: #eaf1f8;
+    margin-top: 100px; margin-bottom: -200px; padding: 20px 0 250px;
 }
-
-
-/* 
-   The Center Curve (Localized Bump)
-   Creates a semi-ellipse sitting exactly on top of the container's edge
-*/
 .employee-voices::before {
-    content: "";
-    position: absolute;
-    
-    /* 
-       Moves the shape up by exactly its height 
-       so it sits flush on top of the straight edge 
-    */
-    top: -60px; 
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* Adjust these to make the bump wider/narrower or taller/shorter */
-    width: 400px; 
-    height: 100px; 
-    
-    background-color: #eaf1f8; /* Must exactly match the container's background */
-    
-    /* 
-       Magic border-radius formula to create a perfect top semi-ellipse 
-       It rounds the top left/right at 100% height, keeping the bottom flat
-    */
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    
-    z-index: 1;
+    content: ""; position: absolute;
+    top: -60px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 100px;
+    background-color: #eaf1f8;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0; z-index: 1;
 }
+.employee-voices__inner { position: relative; z-index: 2; width: min(1280px, 90%); margin: 0 auto; }
+.employee-voices__header { text-align: center; margin-bottom: 50px; }
+.employee-voices__title { font-size: clamp(24px, 3vw, 44px); line-height: 1.6; font-weight: 700; margin: 0; }
 
-.employee-voices__inner {
-    position: relative;
-    z-index: 2; /* Keeps content above the background curve */
-    width: min(1200px, 90%);
-    margin: 0 auto;
-}
-
-/* =========================================================
-   Employee Voices Header
-========================================================= */
-
-.employee-voices__header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.employee-voices__label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #005095;
-    margin-bottom: 20px;
-}
-
-.employee-voices__label-dot {
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: #005095;
-    border-radius: 50%;
-}
-
-.employee-voices__title {
-    font-size: clamp(24px, 3vw, 44px);
-    line-height: 1.6;
-    font-weight: 700;
-    color: #222222;
-    margin: 0;
-}
-
-/* =========================================================
-   Employee Voices Cards
-========================================================= */
-
-.employee-voices__cards {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 80px;
-    flex-wrap: wrap; /* Stacks on mobile */
-}
-
+.employee-voices__cards { display: flex; gap: 30px; margin-bottom: 80px; flex-wrap: wrap; }
 .voice-card {
-    flex: 1;
-    min-width: 320px;
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 40px 30px;
-    
-    display: flex;
-    gap: 25px;
-    align-items: flex-start;
+    flex: 1; min-width: 320px; background: #ffffff; border-radius: 20px; padding: 40px 30px;
+    display: flex; gap: 25px; align-items: flex-start;
 }
+.voice-card__avatar { flex-shrink: 0; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; }
+.voice-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.voice-card__content { flex: 1; }
+.voice-card__role { font-size: 20px; font-weight: 700; margin: 0 0 5px; }
+.voice-card__demo { font-size: 14px; color: #666666; margin: 0 0 15px; }
+.voice-card__text { font-size: 18px; line-height: 1.7; margin: 0; }
 
-.voice-card__avatar {
-    flex-shrink: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.voice-card__avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.voice-card__content {
-    flex: 1;
-}
-
-.voice-card__role {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 5px;
-}
-
-.voice-card__demo {
-    font-size: 14px;
-    color: #666666;
-    margin: 0 0 15px;
-}
-
-.voice-card__text {
-    font-size: 14px;
-    line-height: 1.7;
-    margin: 0;
-}
+/* Slider */
+.employee-voices__slider { width: 100%; overflow: hidden; padding: 40px 0; }
+.employee-voices__slider-track { display: flex; width: max-content; animation: gallery-scroll 70s linear infinite; }
+.gallery-set { display: flex; flex-shrink: 0; gap: 20px; padding-right: 20px; }
+.gallery-img { width: 500px; flex-shrink: 0; border-radius: 15px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.gallery-img--1, .gallery-img--3, .gallery-img--5, .gallery-img--7 { height: 300px; transform: translateY(-20px) rotate(-2deg); }
+.gallery-img--3, .gallery-img--7 { transform: translateY(-20px) rotate(2deg); }
+.gallery-img--2, .gallery-img--4, .gallery-img--6, .gallery-img--8 { height: 300px; transform: translateY(30px); }
+@keyframes gallery-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* =========================================================
-   Employee Voices Continuous Full-Width Slider
+   CTA Section
 ========================================================= */
-
-.employee-voices__slider {
-    width: 100%;
-    overflow: hidden; /* Hides the images outside the screen edges */
-    padding: 40px 0;  /* Prevents the staggered up/down images from getting cut off */
-}
-
-.employee-voices__slider-track {
-    display: flex;
-    width: max-content; /* Allows track to be as wide as all images combined */
-    
-    /* The scrolling animation. Change '40s' to make it faster or slower */
-    animation: gallery-scroll 70s linear infinite;
-}
-
-/* Optional: Pauses the continuous scrolling when a user hovers over the images */
-/* .employee-voices__slider-track:hover {
-    animation-play-state: paused;
-} */
-
-.gallery-set {
-    display: flex;
-
-    flex-shrink: 0;
-    gap: 20px;
-    /* Adds the same gap size to the end of the set so it connects perfectly to Set 2 */
-    padding-right: 20px; 
-}
-
-.gallery-img {
-    width: 500px;
-    flex-shrink: 0;
-    border-radius: 15px;
-    object-fit: cover;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* 
-   Staggered Layout Adjustments 
-*/
-.gallery-img--1 { height: 300px; transform: translateY(-20px) rotate(-2deg); }
-.gallery-img--2 { height: 300px; transform: translateY(30px); }
-.gallery-img--3 { height: 300px; transform: translateY(-20px) rotate(2deg); }
-.gallery-img--4 { height: 300px; transform: translateY(30px); }
-
-.gallery-img--5 { height: 300px; transform: translateY(-20px) rotate(-2deg); }
-.gallery-img--6 { height: 300px; transform: translateY(30px); }
-.gallery-img--7 { height: 300px; transform: translateY(-20px) rotate(2deg); }
-.gallery-img--8 { height: 300px; transform: translateY(30px); }
-
-
-/* The Continuous Loop Animation */
-@keyframes gallery-scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Moves the track exactly halfway to the left, creating a flawless loop */
-        transform: translateX(-50%); 
-    }
-}
-
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-    .gallery-img {
-        width: 220px; /* Slightly smaller images on phones */
-    }
-}
-
-
-
-
-
-
-/* =========================================================
-   CTA
-========================================================= */
-.cta{
-    position: relative;
-    /* Dimensions and rounded corners */
-    height: 350px;
-    width: calc(100% - 60px);
-    margin: 20px auto;
-    border-radius: 20px;
+.cta {
+    position: relative; height: 350px; width: calc(100% - 60px);
+    margin: 20px auto; border-radius: 20px;
     background: linear-gradient(160deg, #47f9ad 0%, #005095 80%);
-    
-    /* Perfect Center Alignment */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers content vertically */
-    align-items: center;     /* Centers content horizontally */
-    
-    /* Increased gap so the popping avatars don't touch the text */
-    gap: 80px; 
-    padding: 0;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 80px; padding: 0;
 }
-
-/* =========================================================
-   CTA Title
-========================================================= */
-.cta__content {
-    /* Force margins to 0 so it doesn't push the layout off-center */
-    margin: 0; 
-    padding: 0;
-    text-align: center;
-}
-
-.cta__title {
-    /* Browsers add default margins to <h1> tags, this removes them */
-    margin: 0; 
-    color: white;
-    font-weight: 500;
-    font-size: 36px;
-}
-
-/* =========================================================
-   08. Hero Bottom Avatar Buttons
-========================================================= */
-.cta__buttons {
-    display: flex;
-    gap: 30px; 
-    justify-content: center;
-    flex-wrap: wrap; 
-    width: 100%;
-}
-
-/* The Pill Shape */
-.cta__button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    
-    width: 320px; 
-    max-width: 100%;
-    padding: 25px 20px 25px 100px; /* 100px left padding makes room for avatar */
-    
-    background-color: #ffffff;
-    color: #222222;
-    text-decoration: none;
-    border-radius: 50px; 
-    
-    font-size: 18px;
-    font-weight: 700;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cta__button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* The "Pop-Out" Avatar Image Wrapper */
-.cta__button-avatar {
-    position: absolute;
-    bottom: 0; 
-    left: 20px;
-    
-    /* Scales image taller than the button to break out of the top */
-    height: 135%; 
-    
-    display: flex;
-    align-items: flex-end; 
-    pointer-events: none; 
-    z-index: 1;
-}
-
-.cta__button-avatar img {
-    height: 100%;
-    width: auto;
-    display: block;
-}
-
-/* Elevate text and icon above the avatar wrapper */
-.cta__button-text,
-.cta__button-icon {
-    position: relative;
-    z-index: 2; 
-}
-
-.cta__button-text {
-    margin-left: 20px;
-}
-
-/* The circular arrow icon on the right */
-.cta__button-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    width: 40px;
-    height: 40px;
-    
-    background-color: #005095; 
-    color: #ffffff;            
-    border-radius: 50%;
-    flex-shrink: 0; 
-}
-
-.cta__button-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-
-
-
-
-
+.cta__title { margin: 0; color: white; font-weight: 500; font-size: 36px; text-align: center;}
 
 /* =========================================================
    Footer Section
 ========================================================= */
-
-.footer {
-    width: 100%;
-    background-color: #ffffff;
-    padding: 80px 0 60px; /* Generous padding for breathing room */
-}
-
+.footer { width: 100%; background-color: #ffffff; padding: 80px 0 60px; }
 .footer__content {
-    /* Uses your standard container width */
-    width: min(1200px, 90%); 
-    margin: 0 auto;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Aligns the bottom of the left and right containers */
-    flex-wrap: wrap; 
-    gap: 40px;
+    width: min(1680px, 90%); margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px;
 }
-
-/* --- Footer Left --- */
-.footer__left {
-    display: flex;
-    flex-direction: column;
-}
-
-.footer__logo {
-    display: block;
-    margin-bottom: 40px;
-    width: 220px; /* Adjust based on your logo size */
-}
-
-.footer__logo img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
+.footer__left { display: flex; flex-direction: column; }
+.footer__logo { display: block; margin-bottom: 40px; width: 220px; }
 .footer__tagline {
-    margin: 0;
-    font-size: 40px;
-    font-weight: 400;
-    color: #000000;
-    letter-spacing: 2px;
-    
-    /* Using a serif font (Mincho) to match the elegant style in the screenshot */
+    margin: 0; font-size: 40px; font-weight: 400; letter-spacing: 2px;
     font-family: "Noto Serif JP", "Yu Mincho", "MS Mincho", serif; 
 }
-
-/* --- Footer Right --- */
-.footer__right {
-    text-align: right;
-}
-
-.footer__link {
-    display: block;
-    font-size: 12px;
-    color: #999999;
-    text-decoration: none;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-}
-
-.footer__link:hover {
-    color: #005095;
-    text-decoration: underline;
-}
-
-.footer__copyright {
-    margin: 0;
-    font-size: 12px;
-    color: #999999;
-}
+.footer__right { text-align: right; }
+.footer__link { display: block; font-size: 16px; color: #999999; margin-bottom: 8px; transition: color 0.3s ease; }
+.footer__link:hover { color: #005095; text-decoration: underline; }
+.footer__copyright { margin: 0; font-size: 16px; color: #999999; }
 
 /* =========================================================
-   Sticky Back to Top Button
+   Sticky Back to Top
 ========================================================= */
-
 .back-to-top {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    z-index: 999; /* Ensures it stays above all other content */
-    
-    width: 50px;
-    height: 50px;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    background-color: #ffffff;
-    border: 1px solid #005095; /* Blue outline */
-    border-radius: 50%;
-    color: #005095; /* Blue arrow */
-    
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: fixed; bottom: 40px; right: 40px; z-index: 999; 
+    width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+    background-color: #ffffff; border: 1px solid #005095; border-radius: 50%; color: #005095;
+    transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-
-.back-to-top svg {
-    width: 24px;
-    height: 24px;
-}
-
-/* Hover effect */
+.back-to-top svg { width: 24px; height: 24px; }
 .back-to-top:hover {
-    background-color: #005095;
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background-color: #005095; color: #ffffff; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .footer__content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .footer__right {
-        text-align: left;
-    }
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-    }
-}
-
-
-
-
-
-
 
 
 
 /* =========================================================
-   Tablet
+   Media Queries
 ========================================================= */
-
-@media (max-width: 1100px) {
-
-    /* Hero */
-
-    .hero {
-        min-height: 650px;
-    }
-
-    .hero-top {
-        min-height: 550px;
-    }
-
-    .hero__title {
-        font-size: 64px;
-    }
-
-    .hero__pr-circle {
-        width: 210px;
-        height: 210px;
-
-        font-size: 32px;
-    }
-
-
-    /* Benefits */
-
-    .recruitment-benefits__list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .recruitment-benefits__item {
-        min-height: 240px;
-    }
-
-    .recruitment-benefits__item h3 {
-        font-size: 30px;
-    }
-
-    .recruitment-benefits__item p {
-        font-size: 64px;
-    }
-
-
-    /* Employee Voices */
-
-    .employee-voices__text {
-        font-size: 30px;
-    }
-
-    .employee-voices__item-message p {
-        font-size: 30px;
-    }
-
-}
-
-
-/* =========================================================
-   Mobile
-========================================================= */
-
 @media (max-width: 768px) {
-
-    section {
-        padding: 70px 0;
-    }
-
-
-    /* =========================
-       Common
-    ========================== */
-
-    .hero-top,
-    .company-intro__inner,
-    .recruitment-benefits,
-    .employee-voices__inner,
-    .site-header__inner,
-    .site-footer__inner,
-    .site-footer__bottom {
-        width: min(92%, 600px);
-    }
-
-    .button {
-
-         width: 100%;
-
-        /* justify-content: space-between; */
-
-        padding: 20px 25px;
-
-        font-size: 20px;
-
-        gap: 15px;
-
-        padding: 20px 25px;
-
-        border-radius: 14px;
-
-        font-size: 20px;
-    }
-
-    .button__arrow {
-        flex-basis: 30px;
-
-        width: 30px;
-        height: 30px;
-    }
-
-    .button__arrow::after {
-        border-top-width: 8px;
-        border-bottom-width: 8px;
-        border-left-width: 13px;
-    }
 
     /* =========================================================
-    Hero
+    HERO Section
     ========================================================= */
+    .hero-top {
+        min-height: 60vh; 
+        width: calc(100% - 30px);
+        margin: 15px 15px -120px 15px; 
+    }
+    
+    .hero__logo img { height: 30px; width: auto; }
 
-    .hero {
-        min-height: auto;
-        padding: 70px 0;
+    .hero-content {
+        position: static; 
+        padding: 30px 15px;
     }
 
-    .hero-top{
-        width: 90%;
-        min-height: 500px;
-
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto 1fr;
-        grid-template-areas:
-            "catchphrase pr"
-            "recruitment recruitment";
-
-        align-items: start;
-    }
-
-
-    /* Top wrapper becomes invisible to the layout */
-    /* .hero__top {
-        display: contents;
-    } */
-
-
-    /* Catchphrase */
-    .hero__catchphrase {
-        grid-area: catchphrase;
-
-        margin: 0;
-
-        text-align: left;
-
-        font-size: 30px;
-        line-height: 1.5;
-    }
-
-
-    /* PR */
-    .hero__pr {
-        grid-area: pr;
-
-        position: static;
-
-        display: flex;
-        justify-content: center;
-    }
-
-    .hero__pr-circle {
-        width: 150px;
-        height: 150px;
-
-        font-size: 20px;
-        line-height: 1.4;
-    }
-
-
-    /* Recruitment */
     .hero__recruitment {
-        grid-area: recruitment;
-
-        width: 100%;
-
-        text-align: left;
-
-        align-self: end;
+        padding: 0; 
+        position: relative;
+        z-index: 10;
+        margin-top: auto; 
     }
 
     .hero__title {
-        font-size: clamp(42px, 11vw, 60px);
-
-        -webkit-text-stroke: 5px white;
-    }
-
-
-    /* Bottom wrapper also becomes transparent */
-    .hero-content {
-        display: contents;
-    }
-
-
-
-    /* =========================
-       Company Introduction
-    ========================== */
-
-    .company-intro {
-        padding: 70px 0;
-    }
-
-    .company-intro__text {
-        margin-top: 40px;
-
-        font-size: 28px;
-        line-height: 1.8;
-    }
-
-
-    /* =========================
-       Recruitment Benefits
-    ========================== */
-
-    .recruitment-benefits-section {
-        padding: 70px 0;
-    }
-
-    .recruitment-benefits__title {
-        margin-bottom: 35px;
-
-        font-size: 32px;
-    }
-
-    .recruitment-benefits__list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 15px;
-    }
-
-    .recruitment-benefits__item {
-        min-width: 0;
-        min-height: 220px;
-        padding: 20px;
-    }
-
-    .recruitment-benefits__item h3 {
-        margin-bottom: 10px;
-
-        font-size: 24px;
-    }
-
-    .recruitment-benefits__item p {
-        font-size: 52px;
-    }
-
-    .recruitment-benefits__item p span {
-        font-size: 30px;
-    }
-
-    .recruitment-benefits__item small {
-        font-size: 12px;
-    }
-
-    .recruitment-benefits__ending {
-        margin-top: 25px;
-
-        font-size: 24px;
-    }
-
-
-     /* =========================
-       Employee Voices
-    ========================= */
-
-    .employee-voices__list {
-        gap: 40px;
-    }
-
-    .employee-voices__item {
-        display: grid;
-
-        grid-template-columns: 100px minmax(0, 1fr);
-
-        gap: 15px;
-
-        align-items: center;
-    }
-
-
-    /* Square */
-
-    .employee-voices__item-square {
-        width: 100px;
-        height: 100px;
-
-        padding: 5px;
-    }
-
-    .employee-voices__item-square p {
-        font-size: 16px;
+        font-size: 32px; 
         line-height: 1.4;
-    }
-
-
-    /* Message */
-
-    .employee-voices__item-message {
-        padding: 20px;
-
-        border-radius: 8px;
-    }
-
-    .employee-voices__item-message p {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    .employee-voices__item-message p:first-child {
         margin-bottom: 10px;
     }
 
-
-    /* Normal dialogue tail */
-
-    .employee-voices__item--normal
-    .employee-voices__item-message::before {
-        left: -12px;
-
-        border-top-width: 10px;
-        border-bottom-width: 10px;
-        border-right-width: 12px;
-    }
-
-
-    /* Reverse layout */
-
-    .employee-voices__item--reverse {
-        grid-template-columns: minmax(0, 1fr) 100px;
-    }
-
-
-    /* Reverse square */
-
-    .employee-voices__item--reverse
-    .employee-voices__item-square {
-        margin-left: auto;
-    }
-
-
-    /* Reverse dialogue tail */
-
-    .employee-voices__item--reverse
-    .employee-voices__item-message::before {
-        right: -12px;
-        left: auto;
-
-        border-top-width: 10px;
-        border-bottom-width: 10px;
-        border-left-width: 12px;
-    }
-
-
-
-    /* =========================
-       CTA
-    ========================== */
-
-    .cta-section {
-        padding: 20px 20px;
-    }
-
-
-    /* =========================
-       Header
-    ========================== */
-
-    .site-header__inner {
-        min-height: 70px;
-
-        gap: 15px;
-    }
-
-    .site-header__logo img {
-        width: 180px;
-    }
-
-    .site-header__nav ul {
-        gap: 12px;
-    }
-
-    .site-header__nav a {
-        font-size: 14px;
-    }
-
-    .site-header__contact a {
-        padding: 9px 12px;
-
-        font-size: 14px;
-    }
-
-
-    /* =========================
-       Footer
-    ========================== */
-
-    .site-footer {
-        padding: 50px 0 50px;
-    }
-
-    .site-footer__logo img {
-        width: 240px;
-    }
-
-    .site-footer__company .site-website-name, .site-copyright {
+    .hero__subtitle {
         font-size: 16px;
     }
 
-    .site-footer__bottom {
-        margin-top: 40px;
+    .hero__pr {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        padding: 0;
+        z-index: 10;
     }
 
-    .site-footer__bottom p {
-        font-size: 14px;
+    .hero__pr-circle {
+        width: 130px;
+        height: 130px;
     }
+
+    .hero__yt-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .hero__pr-circle text {
+        font-size: 17.3px; 
+        letter-spacing: 1px;
+    }
+
+    .hero__pr-circle span:not(.hero__yt-icon) {
+        font-size: 10px;
+        line-height: 1.2;
+    }
+
+    /* Hero Bottom */
+    .hero-bottom{padding-bottom: 50px;}
+
+    .hero-bottom__content { margin-top: 150px;  }
+    .hero-bottom .action-buttons{ gap: 50px; flex-direction: row; }
 
 }
 
 
-/* =========================================================
-   Small Mobile
-========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 900px) {
+    .about__grid { grid-template-columns: 1fr; }
+}
 
-    .hero__catchphrase {
-        font-size: 25px;
-    }
-
-    .hero__title {
-        font-size: 40px;
-    }
-
-    .hero__pr-circle {
-        width: 160px;
-        height: 160px;
-
-        font-size: 21px;
-    }
-
-
-    .company-intro__text {
-        font-size: 24px;
-    }
-
-
-    .recruitment-benefits__title {
-        font-size: 24px;
-    }
-
-    .recruitment-benefits__item h3 {
-        font-size: 21px;
-    }
-
-    .recruitment-benefits__item p {
-        font-size: 45px;
-    }
-
-
-    .employee-voices__text {
-        font-size: 25px;
-    }
-
-    .employee-voices__heading {
-        font-size: 24px;
-    }
-
-    .employee-voices__item-message {
-        padding: 20px;
-    }
-
-    .employee-voices__item-message p {
-        font-size: 19px;
-    }
-
-
-    .button {
-        padding: 17px 20px;
-
-        font-size: 18px;
-    }
-
-
-    .site-header__logo img {
-        width: 140px;
-    }
-
-    .site-header__nav {
-        display: none;
-    }
-
-    .site-footer__logo img {
-        width: 200px;
-    }
-
+@media (max-width: 768px) {
+    section { padding: 70px 0; }
+    /* .hero-top { width: min(92%, 600px); } */
+    .gallery-img { width: 220px; }
+    .footer__content { flex-direction: column; align-items: flex-start; }
+    .footer__right { text-align: left; }
+    .back-to-top { bottom: 20px; right: 20px; }
 }
