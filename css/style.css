@@ -472,7 +472,7 @@ a { color: inherit; text-decoration: none; }
 /* =========================================================
    Ultra-Small Mobile View (Screens under 400px / ~320px phones)
 ========================================================= */
-@media (max-width: 400px) {
+@media (max-width: 440px) {
     /* 1. Shrink the white background behind the logo so it doesn't hit the circle */
     .hero__logo-wrapper {
         padding: 15px 15px 15px 5px; 
