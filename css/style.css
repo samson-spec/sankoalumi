@@ -502,9 +502,34 @@ a {
 
 .about__card-icon { 
     width: auto; 
-    height: 60px; 
+    height: 60px; /*temporary*/
     margin: 15px 0; 
 }
+/* ------------------------- */
+/* ------------------------- */
+/* each icon */
+#about__card-icon-1 { 
+    height: 80px;
+    margin-top:20px;
+}
+
+#about__card-icon-2 { 
+    height: 70px;
+    margin-top:30px;
+}
+
+#about__card-icon-3 { 
+    height: 90px;
+    margin-top:30px;
+}
+
+#about__card-icon-4 { 
+    height: 70px;
+    margin-top:30px;
+}
+
+/* ------------------------- */
+/* ------------------------- */
 
 .about__card-note { 
     margin-top: auto; 
@@ -1046,6 +1071,30 @@ a {
         height: 45px; 
         margin: 10px 0; 
     }
+
+    /* ------------------------- */
+    /* ------------------------- */
+    /* each icon */
+    #about__card-icon-1 { 
+        height: 60px;
+        margin-top:15px;
+    }
+
+    #about__card-icon-2 { 
+        height: 60px;
+        margin-top:20px;
+    }
+
+    #about__card-icon-3 { 
+        height: 70px;
+        margin-top:20px;
+    }
+
+    #about__card-icon-4 { 
+        height: 50px;
+        margin-top:20px;
+    }
+
     .about__grid-footer { 
         margin: 10px 0 0 0; 
         font-size: 12px; 
