@@ -960,15 +960,18 @@ a {
         padding-bottom: 40px; 
     }
     .btn-pill {
-        width: 100%;                  
+        /* width: 100%; */
+        width: 324px; 
+    height: 65px;
         padding: 20px 15px 20px 80px; 
-        font-size: 15px;              
+        font-size: 15px;     
+                 
     }
     .btn-pill__avatar { 
         left: 15px; 
     }
     .btn-pill__text { 
-        margin-left: 50px; 
+        margin-left: 10px; 
     }
 
     /* Hero */
@@ -1019,7 +1022,7 @@ a {
         letter-spacing: 1px; 
     }
     .hero__pr-circle span:not(.hero__yt-icon) { 
-        font-size: 10px; 
+        font-size: 14px; 
         line-height: 1.2; 
     }
     
@@ -1217,7 +1220,7 @@ a {
         font-size: 18.4px; 
     }
     .hero__pr-circle span:not(.hero__yt-icon) { 
-        font-size: 9px; 
+        font-size: 12px; 
     }
     .hero-content { 
         padding: 20px 15px; 
