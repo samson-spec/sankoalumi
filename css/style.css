@@ -184,8 +184,8 @@ a {
 }
 
 .btn-pill__icon svg { 
-    width: 20px; 
-    height: 20px; 
+    width: 30px; 
+    height: 30px; 
 }
 
 /* =========================================================
@@ -973,6 +973,17 @@ a {
     .btn-pill__text { 
         margin-left: 10px; 
     }
+
+    .btn-pill__icon{
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-pill__icon svg { 
+    width: 18px; 
+    height: 18px; 
+}
+    
 
     /* Hero */
     .hero-top {
